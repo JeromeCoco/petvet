@@ -1,0 +1,132 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06 17, 17
+    Author     : jethro
+*/
+
+/*primary color: #0c827f
+secondary color: #888539*/
+
+@font-face {
+    font-family: 'gotham_bookregular';
+    src: url('../fonts/gotham_book_regular-webfont.woff2') format('woff2'),
+         url('../fonts/gotham_book_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gotham_boldregular';
+    src: url('../fonts/gotham_bold_regular-webfont.woff2') format('woff2'),
+         url('../fonts/gotham_bold_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1
+{
+    font-family: 'gotham_boldregular';
+    color: #243852;
+}
+
+body
+{
+    font-family: 'gotham_bookregular';
+}
+
+.navbar
+{
+    background: #0c827f;
+    border-radius: 0;
+}
+
+.navbar, .navbar a, navbar a:focus
+{
+    color: #fff;
+    transition: 0.5;
+}
+
+.navbar li:hover, .navbar li.open, .navbar li.open, .navbar li a:hover, .navbar li a:focus, .navbar li.open a:focus
+{
+    background: #0a6b68;
+}
+
+.left-nav
+{
+    padding: 0;
+    min-height: 100vh;
+    border-right: 1px solid #ddd;
+    background: #ddd;
+    margin-top: 50px;
+}
+
+.left-nav .list-group-item:first-child, .left-nav .list-group-item:last-child
+{
+    border-radius: 0
+}
+
+.left-nav .list-group-item
+{
+    border-left: none;
+    border-right: none;
+}
+
+.left-nav .list-group-item:hover, .actives
+{
+    background: #21ccc7;
+    color: #fff;
+    cursor: pointer;
+}
+
+.main-container
+{
+    margin-top: 80px;
+}
+
+.menu-toggle
+{
+    float: left;
+    padding: 15px;
+    text-align: center;
+    background: none;
+    outline: none;
+    border: none;
+    width: 60px;
+}
+
+.menu-toggle i
+{
+    font-size: 20px;
+}
+
+.menu-toggle.active
+{
+    background: #096562
+}
+
+.navbar-brand
+{
+    margin-left: -10px !important;
+}
+
+.btnAdd
+{
+    float: right;
+    margin-bottom: 20px;
+}
+
+.addNewHeaderText
+{
+    font-size: 20px;
+}
+
+.thumbnail
+{
+    width: 70px;
+}
