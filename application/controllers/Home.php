@@ -166,5 +166,28 @@
             echo json_encode($data);
             exit;
         }
+
+        public function addNewDoctor()
+        {
+            $this->load->view('AddNewDoctor');
+        }
+
+        public function addNewService()
+        {
+            $this->load->view('AddNewService');
+        }
+
+        public function addNewPet()
+        {
+            $this->load->view('AddNewPet');
+        }
+
+        public function addNewUserAdmin()
+        {
+            $data = array();
+            $data = $this->Petvet_model->addNewUserAdminDetails($_POST);
+            echo json_encode($data);
+            exit;
+        }
     }
 ?>

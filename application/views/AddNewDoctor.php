@@ -47,13 +47,13 @@
           <li class="list-group-item">Dashboard </li>
         </a>
         <a href="<?php echo base_url(); ?>index.php/home/products">
-          <li class="list-group-item actives">Products </li>
+          <li class="list-group-item">Products </li>
         </a>
         <a href="<?php echo base_url(); ?>index.php/home/services">
           <li class="list-group-item">Services </li>
         </a>
         <a href="<?php echo base_url(); ?>index.php/home/doctors">
-          <li class="list-group-item">Doctors </li>
+          <li class="list-group-item actives">Doctors </li>
         </a>
         <a href="<?php echo base_url(); ?>index.php/home/members">
           <li class="list-group-item">Members </li>
@@ -69,38 +69,54 @@
     <div class="col-xs-10">
       <div class="container">
         <div class="main-container">
-          <div class="addNewHeaderText">Add New Product <hr/> </div>
-          <div class="col-sm-12 ">
-            <?php 
-              if (isset($error))
-              {
-                echo $error; 
-              }
-            ?>
+          <div class="addNewHeaderText">Add New Doctor <hr/> </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="firstName" placeholder="First Name" />
           </div>
-          <?php echo form_open_multipart('home/saveProduct');?>
-            <div class="col-sm-6">
-              <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name" />
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name" />
+          </div>
+          <div class="col-sm-6">
+            <br/>
+            <input type="number" class="form-control" id="mobileNumber" placeholder="Mobile Number" />
+          </div>
+          <div class="col-sm-12">
+            <br/>
+            <div class="checkbox">
+              <label><input type="checkbox" id="sunday">Sunday</label>
             </div>
-            <div class="col-sm-12">
-              <br/>
-              Product Description:
-              <textarea name="productDescription" id="textareatinymce"></textarea>
+            <div class="checkbox">
+              <label><input type="checkbox" id="monday">Monday</label>
             </div>
-            <div class="col-sm-6">
-              <br/>
-              <input type="number" class="form-control" name="productPrice" id="productPrice" placeholder="Product Price" />
-              <br/>
+            <div class="checkbox">
+              <label><input type="checkbox" id="tuesday">Tuesday</label>
             </div>
-            <div class="col-sm-12" id="uploadDiv">
-              <input id="file" name="userfile" type="file"/>
+            <div class="checkbox">
+              <label><input type="checkbox" id="wednessday">Wednesday</label>
             </div>
-            <div class="col-sm-6">
-              <br/>
-              <input type="hidden" name="filename" id="filename"/> <!-- This is the filename -->
-              <input type="submit" class="btn btn-success" value="Add product"/>
+            <div class="checkbox">
+              <label><input type="checkbox" id="thursday">Thursday</label>
             </div>
-          </form>
+            <div class="checkbox">
+              <label><input type="checkbox" id="friday">Friday</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" id="saturday">Saturday</label>
+            </div>
+            <br/>
+          </div>
+          <div class="col-sm-6">
+            Time in:
+            <input type="text" id="timeIn" class="form-control" />
+          </div>
+          <div class="col-sm-6">
+            Time out:
+            <input type="text" id="timeOut" class="form-control" />
+          </div>
+          <div class="col-sm-6">
+            <br/>
+            <button id="btnSaveDoctor" class="btn btn-success">Save details</button>
+          </div>
         </div>
       </div>
     </div>

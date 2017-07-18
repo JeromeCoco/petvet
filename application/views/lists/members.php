@@ -4,6 +4,7 @@
 	<td id="memberMobile<?php echo $id; ?>"><?php echo $mobile; ?></td>
 	<td></td>
 	<td>
+		<button id="btnViewMember" class="btn btn-default" data-id="<?php echo $id; ?>">View</button>
 		<button id="btnEditMember" class="btn btn-default" data-id="<?php echo $id; ?>">Edit</button>
 		<button id="btnRemoveMember" class="btn btn-danger" data-id="<?php echo $id; ?>">Remove</button>
 	</td>

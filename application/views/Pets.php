@@ -69,7 +69,25 @@
     <div class="col-xs-10">
       <div class="container">
         <div class="main-container">
-          
+          <div class="btnAdd">
+            <a href="<?php echo base_url(); ?>index.php/home/addNewPet">
+              <button class="btn btn-default">Add new pet</button>
+            </a>
+          </div>
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th>Owner ID</th>
+                <th>Name</th>
+                <th>Specie</th>
+                <th>Breed</th>
+                <th>Gender</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php //echo $pets_list; ?>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

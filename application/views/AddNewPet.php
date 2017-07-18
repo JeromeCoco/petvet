@@ -47,7 +47,7 @@
           <li class="list-group-item">Dashboard </li>
         </a>
         <a href="<?php echo base_url(); ?>index.php/home/products">
-          <li class="list-group-item actives">Products </li>
+          <li class="list-group-item">Products </li>
         </a>
         <a href="<?php echo base_url(); ?>index.php/home/services">
           <li class="list-group-item">Services </li>
@@ -59,7 +59,7 @@
           <li class="list-group-item">Members </li>
         </a>
         <a href="<?php echo base_url(); ?>index.php/home/pets">
-          <li class="list-group-item">Pets </li>
+          <li class="list-group-item actives">Pets </li>
         </a>
         <a href="<?php echo base_url(); ?>index.php/home/useradmin">
           <li class="list-group-item">User Admin </li>
@@ -69,38 +69,46 @@
     <div class="col-xs-10">
       <div class="container">
         <div class="main-container">
-          <div class="addNewHeaderText">Add New Product <hr/> </div>
-          <div class="col-sm-12 ">
-            <?php 
-              if (isset($error))
-              {
-                echo $error; 
-              }
-            ?>
+          <div class="addNewHeaderText">Add New Pet <hr/> </div>
+          <div class="col-sm-6">
+            Owner:
+            <select class="form-control" id="ownerName">
+              <option>Sample</option>
+              <option>Data</option>
+            </select>
           </div>
-          <?php echo form_open_multipart('home/saveProduct');?>
-            <div class="col-sm-6">
-              <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name" />
-            </div>
-            <div class="col-sm-12">
-              <br/>
-              Product Description:
-              <textarea name="productDescription" id="textareatinymce"></textarea>
-            </div>
-            <div class="col-sm-6">
-              <br/>
-              <input type="number" class="form-control" name="productPrice" id="productPrice" placeholder="Product Price" />
-              <br/>
-            </div>
-            <div class="col-sm-12" id="uploadDiv">
-              <input id="file" name="userfile" type="file"/>
-            </div>
-            <div class="col-sm-6">
-              <br/>
-              <input type="hidden" name="filename" id="filename"/> <!-- This is the filename -->
-              <input type="submit" class="btn btn-success" value="Add product"/>
-            </div>
-          </form>
+          <div class="col-sm-6">
+            Name:
+            <input type="text" id="petName" class="form-control"/>
+          </div>
+          <div class="col-sm-6">
+            <br/>
+            Specie:
+            <select class="form-control" id="specie">
+              <option>Sample</option>
+              <option>Data</option>
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <br/>
+            Breed:
+            <select class="form-control" id="breed">
+              <option>Sample</option>
+              <option>Data</option>
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <br/>
+            Gender:
+            <select class="form-control" id="breed">
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+          <div class="col-sm-12">
+            <br/>
+            <button class="btn btn-success">Add pet</button>
+          </div>
         </div>
       </div>
     </div>

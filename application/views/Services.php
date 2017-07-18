@@ -69,7 +69,23 @@
     <div class="col-xs-10">
       <div class="container">
         <div class="main-container">
-          
+          <div class="btnAdd">
+            <a href="<?php echo base_url(); ?>index.php/home/addNewService">
+              <button class="btn btn-default">Add new service</button>
+            </a>
+          </div>
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Preview</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php //echo $services_list; ?>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

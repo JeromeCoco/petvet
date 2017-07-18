@@ -47,10 +47,10 @@
           <li class="list-group-item">Dashboard </li>
         </a>
         <a href="<?php echo base_url(); ?>index.php/home/products">
-          <li class="list-group-item actives">Products </li>
+          <li class="list-group-item">Products </li>
         </a>
         <a href="<?php echo base_url(); ?>index.php/home/services">
-          <li class="list-group-item">Services </li>
+          <li class="list-group-item actives">Services </li>
         </a>
         <a href="<?php echo base_url(); ?>index.php/home/doctors">
           <li class="list-group-item">Doctors </li>
@@ -69,7 +69,7 @@
     <div class="col-xs-10">
       <div class="container">
         <div class="main-container">
-          <div class="addNewHeaderText">Add New Product <hr/> </div>
+          <div class="addNewHeaderText">Add New Service <hr/> </div>
           <div class="col-sm-12 ">
             <?php 
               if (isset($error))
@@ -78,18 +78,18 @@
               }
             ?>
           </div>
-          <?php echo form_open_multipart('home/saveProduct');?>
+          <?php echo form_open_multipart('home/saveService');?>
             <div class="col-sm-6">
-              <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name" />
+              <input type="text" class="form-control" name="serviceName" id="serviceName" placeholder="Service Name" />
             </div>
             <div class="col-sm-12">
               <br/>
-              Product Description:
-              <textarea name="productDescription" id="textareatinymce"></textarea>
+              Service Description:
+              <textarea name="serviceDescription" id="textareatinymce"></textarea>
             </div>
             <div class="col-sm-6">
               <br/>
-              <input type="number" class="form-control" name="productPrice" id="productPrice" placeholder="Product Price" />
+              <input type="number" class="form-control" name="servicePrice" id="servicePrice" placeholder="Service Price" />
               <br/>
             </div>
             <div class="col-sm-12" id="uploadDiv">
@@ -98,7 +98,7 @@
             <div class="col-sm-6">
               <br/>
               <input type="hidden" name="filename" id="filename"/> <!-- This is the filename -->
-              <input type="submit" class="btn btn-success" value="Add product"/>
+              <input type="submit" class="btn btn-success" value="Add service"/>
             </div>
           </form>
         </div>

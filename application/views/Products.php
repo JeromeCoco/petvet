@@ -78,7 +78,6 @@
             <thead>
               <tr>
                 <th>Product Name</th>
-                <th>Description</th>
                 <th>Price</th>
                 <th>Preview</th>
               </tr>

@@ -80,8 +80,6 @@
                 <th>Firstname</th>
                 <th>Lastname</th>
                 <th>Mobile #</th>
-                <th>Pets</th>
-
               </tr>
             </thead>
             <tbody>

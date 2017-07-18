@@ -191,6 +191,44 @@ $(document).ready(function()
 
 	$(document).on( "click", "#btnEditProduct", function(){
 		var id = $(this).attr("data-id");
-		
+	});
+
+	$('#btnSaveDoctor').click(function(){
+		/*var firstName = $('#firstName').val();
+		var lastName = $('#lastName').val();
+		var mobileNumber = $('#mobileNumber').val();*/
+	});
+
+	$('#btnSaveUser').click(function(){
+		var userName = $('#userName').val();
+		var password = $('#password').val();
+		var confirmPassword = $('#confirmPassword').val();
+		if (userName == "" || password == "" || confirmPassword == "")
+		{
+			console.log("Enter complete details.");
+		}
+		else
+		{
+			if (password == confirmPassword)
+			{
+				$.ajax({
+					url: "addNewUserAdmin",
+			        type: "POST",
+			        data: { 
+			        	userName: userName,
+			        	password: password
+			       	},
+			        dataType: "json",
+			        success: function(data)
+			        {
+			        	console.log(data);
+			        }
+				});
+			}
+			else
+			{
+				console.log("Password do not match.");
+			}
+		}
 	});
 });

@@ -67,5 +67,19 @@
 	        $this->pdo->query($removeProduct, array($productid));
 	        return "Product successfully removed.";
 	    }
+
+	    public function addDoctorDetails($data)
+	    {
+
+	    }
+
+	    public function addNewUserAdminDetails($data)
+	    {
+	    	extract($data);
+	    	$hashpassword = hash('sha1', $password);
+	    	$insertProduct = "INSERT INTO user_admin(username, password, enabled) VALUES(?, ?, ?)";
+	        $this->pdo->query($insertProduct, array($userName, $hashpassword, 1));
+	        return "New user admin successfully added.";
+	    }
 	}
 ?>

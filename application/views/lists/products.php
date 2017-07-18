@@ -1,6 +1,5 @@
 <tr id="product<?php echo $id; ?>">
 	<td><?php echo $name; ?></td>
-	<td><?php echo html_entity_decode($description); ?></td>
 	<td><?php echo $price; ?></td>
 	<td>
 		<a href="<?php echo base_url()."www/images/".$image ?>">

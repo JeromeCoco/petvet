@@ -69,7 +69,23 @@
     <div class="col-xs-10">
       <div class="container">
         <div class="main-container">
-          
+          <div class="btnAdd">
+            <a href="<?php echo base_url(); ?>index.php/home/addNewDoctor">
+              <button class="btn btn-default">Add new doctor</button>
+            </a>
+          </div>
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Mobile #</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php //echo $doctors_list; ?>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
