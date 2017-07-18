@@ -194,9 +194,61 @@ $(document).ready(function()
 	});
 
 	$('#btnSaveDoctor').click(function(){
-		/*var firstName = $('#firstName').val();
+		var firstName = $('#firstName').val();
 		var lastName = $('#lastName').val();
-		var mobileNumber = $('#mobileNumber').val();*/
+		var mobileNumber = $('#mobileNumber').val();
+		var sun = $('#sunday').is(":checked") ? '1' : '0';
+		var mon = $('#monday').is(":checked") ? '1' : '0';
+		var tues = $('#tuesday').is(":checked") ? '1' : '0';
+		var wed = $('#wednesday').is(":checked") ? '1' : '0';
+		var thurs = $('#thursday').is(":checked") ? '1' : '0';
+		var fri = $('#friday').is(":checked") ? '1' : '0';
+		var sat = $('#saturday').is(":checked") ? '1' : '0';
+		var timeIn = $('#timeIn').val();
+		var timeOut = $('#timeOut').val();
+
+		if (firstName == "" || lastName == "" || mobileNumber == "" || timeIn == "" || timeOut == "")
+		{
+			$("#saveStatus").html("");
+        	$("#saveStatus").append('<div class="alert alert-warning">' +
+				'<strong>Please enter needed details. Try again.</strong>' +
+			'</div>');
+		}
+		else
+		{
+			$.ajax({
+				url: "addNewDoctorDetails",
+		        type: "POST",
+		        data: { 
+		        	firstName: firstName,
+		        	lastName: lastName,
+		        	mobileNumber: mobileNumber,
+		        	sun: sun,
+		        	mon: mon,
+		        	tues: tues,
+		        	wed: wed,
+		        	thurs: thurs,
+		        	fri: fri,
+		        	sat: sat,
+		        	timeIn: timeIn,
+		        	timeOut: timeOut
+		        },
+		        dataType: "json",
+		        success: function(data)
+		        {
+		        	$('#saveStatus').html(" ");
+		        	$("#saveStatus").append('<div class="alert alert-success">' +
+						'<strong>'+data+'</strong>' +
+					'</div>');
+					$('#firstName').val("");
+					$('#lastName').val("");
+					$('#mobileNumber').val("");
+					//$('#sun').checked = false;
+					$('#timeIn').val("");
+					$('#timeOut').val("");
+		        }
+			});
+		}
 	});
 
 	$('#btnSaveUser').click(function(){
@@ -205,7 +257,10 @@ $(document).ready(function()
 		var confirmPassword = $('#confirmPassword').val();
 		if (userName == "" || password == "" || confirmPassword == "")
 		{
-			console.log("Enter complete details.");
+			$("#saveStatus").html("");
+        	$("#saveStatus").append('<div class="alert alert-warning">' +
+				'<strong>Please enter complete details. Try again.</strong>' +
+			'</div>');
 		}
 		else
 		{
@@ -221,14 +276,41 @@ $(document).ready(function()
 			        dataType: "json",
 			        success: function(data)
 			        {
-			        	console.log(data);
+			        	$('#saveStatus').html(" ");
+			        	$("#saveStatus").append('<div class="alert alert-success">' +
+							'<strong>'+data+'</strong>' +
+						'</div>');
+						$('#userName').val("");
+						$('#password').val("");
+						$('#confirmPassword').val("");
 			        }
 				});
 			}
 			else
 			{
-				console.log("Password do not match.");
+				$("#saveStatus").html("");
+	        	$("#saveStatus").append('<div class="alert alert-danger">' +
+					'<strong>Password do not match. Try again.</strong>' +
+				'</div>');
 			}
+		}
+	});
+
+	$(document).on( "click", "#btnRemoveDoctor", function(){
+		var doctorid = $(this).attr("data-id");
+		var confirmRemove = confirm("Are you sure you want to remove a doctor?");
+		if (confirmRemove)
+		{
+			$.ajax({
+				url: "removeDoctor",
+		        type: "POST",
+		        data: { doctorid: doctorid },
+		        dataType: "json",
+		        success: function(data)
+		        {
+		        	$("#doctor"+doctorid).fadeOut('slow');
+		        }
+			});
 		}
 	});
 });

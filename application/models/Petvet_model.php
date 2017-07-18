@@ -68,18 +68,34 @@
 	        return "Product successfully removed.";
 	    }
 
-	    public function addDoctorDetails($data)
-	    {
-
-	    }
-
 	    public function addNewUserAdminDetails($data)
 	    {
 	    	extract($data);
 	    	$hashpassword = hash('sha1', $password);
-	    	$insertProduct = "INSERT INTO user_admin(username, password, enabled) VALUES(?, ?, ?)";
-	        $this->pdo->query($insertProduct, array($userName, $hashpassword, 1));
+	    	$insertUser = "INSERT INTO user_admin(username, password, enabled) VALUES(?, ?, ?)";
+	        $this->pdo->query($insertUser, array($userName, $hashpassword, 1));
 	        return "New user admin successfully added.";
+	    }
+
+	    public function insertDoctorDetails($data)
+	    {
+	    	extract($data);
+	    	$insertDoctor = "INSERT INTO doctor(lastName, firstName, mobile, mon, tue, wed, thur, fri, sat, sun, time_in, time_out, enabled) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	        $this->pdo->query($insertDoctor, array($lastName, $firstName, $mobileNumber, $mon, $tues, $wed, $thurs, $fri, $sat, $sun, $timeIn, $timeOut, 1));
+	        return "New doctor successfully added.";
+	    }
+
+	    public function getDoctorDetails()
+	    {
+	    	$selectDoctors = $this->pdo->query("SELECT * FROM doctor WHERE enabled = 1");
+	    	return $selectDoctors;
+	    }
+
+	    public function deleteDoctorDetails($data)
+	    {
+	    	extract($data);
+	        $removeDoctor = "UPDATE doctor SET enabled = 0 WHERE id = ?";
+	        $this->pdo->query($removeDoctor, array($doctorid));
 	    }
 	}
 ?>

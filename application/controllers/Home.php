@@ -61,7 +61,21 @@
 
         public function doctors()
         {
-            $this->load->view('Doctors');
+            $data['doctors_list'] = $this->getDoctorsList();
+            $this->load->view('Doctors', $data);
+        }
+
+        public function getDoctorsList()
+        {
+            $doctors = '';
+            $doctorsdetails = array();
+            $doctorsdetails = $this->Petvet_model->getDoctorDetails();
+            foreach ($doctorsdetails->result() as $row)
+            {
+                $data = (array) $row;
+                $doctors .= $this->load->view('lists/doctors', $data, true);
+            }
+            return $doctors;
         }
 
         public function members()
@@ -186,6 +200,22 @@
         {
             $data = array();
             $data = $this->Petvet_model->addNewUserAdminDetails($_POST);
+            echo json_encode($data);
+            exit;
+        }
+
+        public function addNewDoctorDetails()
+        {
+            $data = array();
+            $data = $this->Petvet_model->insertDoctorDetails($_POST);
+            echo json_encode($data);
+            exit;
+        }
+
+        public function removeDoctor()
+        {
+            $data = array();
+            $data = $this->Petvet_model->deleteDoctorDetails($_POST);
             echo json_encode($data);
             exit;
         }

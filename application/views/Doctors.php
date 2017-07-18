@@ -83,7 +83,7 @@
               </tr>
             </thead>
             <tbody>
-              <?php //echo $doctors_list; ?>
+              <?php echo $doctors_list; ?>
             </tbody>
           </table>
         </div>

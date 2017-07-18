@@ -70,6 +70,11 @@
       <div class="container">
         <div class="main-container">
           <div class="addNewHeaderText">Add New Doctor <hr/> </div>
+          <div class="col-sm-12 ">
+            <div id="saveStatus">
+              <!-- Error messages -->
+            </div>
+          </div>
           <div class="col-sm-6">
             <input type="text" class="form-control" id="firstName" placeholder="First Name" />
           </div>
@@ -92,7 +97,7 @@
               <label><input type="checkbox" id="tuesday">Tuesday</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" id="wednessday">Wednesday</label>
+              <label><input type="checkbox" id="wednesday">Wednesday</label>
             </div>
             <div class="checkbox">
               <label><input type="checkbox" id="thursday">Thursday</label>
@@ -115,7 +120,7 @@
           </div>
           <div class="col-sm-6">
             <br/>
-            <button id="btnSaveDoctor" class="btn btn-success">Save details</button>
+            <button id="btnSaveDoctor" class="btn btn-success">Save doctor details</button>
           </div>
         </div>
       </div>

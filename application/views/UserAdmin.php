@@ -70,6 +70,11 @@
       <div class="container">
         <div class="main-container">
           <div class="addNewHeaderText">Add New User Admin <hr/> </div>
+          <div class="col-sm-12 ">
+            <div id="saveStatus">
+              <!-- Error messages -->
+            </div>
+          </div>
           <div class="col-sm-7">
             <input type="text" id="userName" class="form-control" placeholder="Username" />
           </div>
