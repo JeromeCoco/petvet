@@ -243,7 +243,7 @@ $(document).ready(function()
 					$('#firstName').val("");
 					$('#lastName').val("");
 					$('#mobileNumber').val("");
-					//$('#sun').checked = false;
+    				$('.dayOption').prop('checked', false);
 					$('#timeIn').val("");
 					$('#timeOut').val("");
 		        }

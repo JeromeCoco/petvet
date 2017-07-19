@@ -88,25 +88,25 @@
           <div class="col-sm-12">
             <br/>
             <div class="checkbox">
-              <label><input type="checkbox" id="sunday">Sunday</label>
+              <label><input class="dayOption" type="checkbox" id="sunday">Sunday</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" id="monday">Monday</label>
+              <label><input class="dayOption" type="checkbox" id="monday">Monday</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" id="tuesday">Tuesday</label>
+              <label><input class="dayOption" type="checkbox" id="tuesday">Tuesday</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" id="wednesday">Wednesday</label>
+              <label><input class="dayOption" type="checkbox" id="wednesday">Wednesday</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" id="thursday">Thursday</label>
+              <label><input class="dayOption" type="checkbox" id="thursday">Thursday</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" id="friday">Friday</label>
+              <label><input class="dayOption" type="checkbox" id="friday">Friday</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" id="saturday">Saturday</label>
+              <label><input class="dayOption" type="checkbox" id="saturday">Saturday</label>
             </div>
             <br/>
           </div>
