@@ -74,12 +74,13 @@
               <button class="btn btn-default">Add new member</button>
             </a>
           </div>
-          <table class="table table-condensed table-striped">
+          <table class="table table-condensed table-striped table-bordered">
             <thead>
               <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Mobile #</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Mobile Number</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>

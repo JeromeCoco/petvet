@@ -42,9 +42,10 @@ $(document).ready(function()
 		var userName = $("#userName").val();
 		var password = $("#password").val();
 		var confirmPassword = $("#confirmPassword").val();
+
+		$("#saveStatus").html("");
 		if (firstName == "" || lastName == "" || address == "" || mobileNumber == "" || emailAddress == "" || userName == "" || password == "" || confirmPassword == "")
 		{
-			$("#saveStatus").html("");
         	$("#saveStatus").append('<div class="alert alert-warning">' +
 				'<strong>Please enter complete details. Try again.</strong>' +
 			'</div>');
@@ -53,7 +54,6 @@ $(document).ready(function()
 		{
 			if (password != confirmPassword)
 			{
-				$("#saveStatus").html("");
 	        	$("#saveStatus").append('<div class="alert alert-danger">' +
 					'<strong>Password do not match. Try again.</strong>' +
 				'</div>');
@@ -76,7 +76,6 @@ $(document).ready(function()
 			        dataType: "json",
 			        success: function(data)
 			        {
-			        	$("#saveStatus").html("");
 			        	$("#saveStatus").append('<div class="alert alert-success">' +
   						'<strong>'+data+'</strong>' +
 						'</div>');
@@ -131,9 +130,10 @@ $(document).ready(function()
 		var newAddress = $("#editAddress").val();
 		var newMobileNumber = $("#editMobileNumber").val();
 		var newEmailAddress = $("#editEmailAddress").val();
+
+		$("#editStatus").html("");
 		if (newFirstName == "" || newLastName == "" || newAddress == "" || newMobileNumber == "" || newEmailAddress == "")
 		{
-			$("#editStatus").html("");
         	$("#editStatus").append('<div class="alert alert-warning">' +
 				'<strong>Please enter complete details. Try again.</strong>' +
 			'</div>');
@@ -154,7 +154,6 @@ $(document).ready(function()
 		        dataType: "json",
 		        success: function(data)
 		        {
-		        	$("#editStatus").html("");
 		        	$("#editStatus").append('<div class="alert alert-success">' +
 						'<strong>'+data+'</strong>' +
 					'</div>');
@@ -207,9 +206,9 @@ $(document).ready(function()
 		var timeIn = $('#timeIn').val();
 		var timeOut = $('#timeOut').val();
 
+		$("#saveStatus").html("");
 		if (firstName == "" || lastName == "" || mobileNumber == "" || timeIn == "" || timeOut == "")
 		{
-			$("#saveStatus").html("");
         	$("#saveStatus").append('<div class="alert alert-warning">' +
 				'<strong>Please enter needed details. Try again.</strong>' +
 			'</div>');
@@ -236,7 +235,6 @@ $(document).ready(function()
 		        dataType: "json",
 		        success: function(data)
 		        {
-		        	$('#saveStatus').html(" ");
 		        	$("#saveStatus").append('<div class="alert alert-success">' +
 						'<strong>'+data+'</strong>' +
 					'</div>');
@@ -255,9 +253,10 @@ $(document).ready(function()
 		var userName = $('#userName').val();
 		var password = $('#password').val();
 		var confirmPassword = $('#confirmPassword').val();
+
+		$("#saveStatus").html("");
 		if (userName == "" || password == "" || confirmPassword == "")
 		{
-			$("#saveStatus").html("");
         	$("#saveStatus").append('<div class="alert alert-warning">' +
 				'<strong>Please enter complete details. Try again.</strong>' +
 			'</div>');
@@ -276,7 +275,6 @@ $(document).ready(function()
 			        dataType: "json",
 			        success: function(data)
 			        {
-			        	$('#saveStatus').html(" ");
 			        	$("#saveStatus").append('<div class="alert alert-success">' +
 							'<strong>'+data+'</strong>' +
 						'</div>');
@@ -288,7 +286,6 @@ $(document).ready(function()
 			}
 			else
 			{
-				$("#saveStatus").html("");
 	        	$("#saveStatus").append('<div class="alert alert-danger">' +
 					'<strong>Password do not match. Try again.</strong>' +
 				'</div>');

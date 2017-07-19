@@ -74,12 +74,13 @@
               <button class="btn btn-default">Add new product</button>
             </a>
           </div>
-          <table class="table table-condensed table-striped">
+          <table class="table table-condensed table-striped table-bordered">
             <thead>
               <tr>
                 <th>Product Name</th>
                 <th>Price</th>
                 <th>Preview</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>

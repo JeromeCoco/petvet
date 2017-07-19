@@ -74,14 +74,15 @@
               <button class="btn btn-default">Add new pet</button>
             </a>
           </div>
-          <table class="table table-condensed table-striped">
+          <table class="table table-condensed table-striped table-bordered">
             <thead>
               <tr>
-                <th>Owner ID</th>
+                <th>Owner</th>
                 <th>Name</th>
                 <th>Specie</th>
                 <th>Breed</th>
                 <th>Gender</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
