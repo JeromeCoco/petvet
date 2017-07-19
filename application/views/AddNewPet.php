@@ -84,7 +84,7 @@
             <br/>
             Specie:
             <select class="form-control" id="optSpecie">
-              <option id="optBreedNone" disabled selected>Choose here...</option>
+              <option disabled selected>Choose here...</option>
               <?php echo $species_list; ?>
             </select>
           </div>

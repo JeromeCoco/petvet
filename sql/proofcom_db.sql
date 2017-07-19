@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2017 at 05:12 PM
+-- Generation Time: Jul 19, 2017 at 06:20 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -42,11 +42,11 @@ INSERT INTO `breed` (`id`, `specie_id`, `name`) VALUES
 (3, 1, 'German Shepherd'),
 (4, 1, 'Siberian Husky'),
 (5, 1, 'Poodle'),
-(6, 2, 'Siamese'),
-(7, 2, 'Persian'),
-(8, 2, 'Burmese'),
-(9, 2, 'Ragdoll'),
-(10, 2, 'Bengal');
+(6, 3, 'Siamese'),
+(7, 3, 'Persian'),
+(8, 3, 'Burmese'),
+(9, 3, 'Ragdoll'),
+(10, 3, 'Bengal');
 
 -- --------------------------------------------------------
 
@@ -71,9 +71,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `lastname`, `firstname`, `address`, `mobile`, `email`, `username`, `password`, `enabled`) VALUES
-(3, 'test', 'test', 'test', '09078652121', 'test', 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 1),
+(3, 'coco', 'jerome', 'test', '09078652121', 'test', 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 1),
 (4, 'jeromewqwqw', 'cocossswqwq', 'caloocan city', '09078651995', 'jeormcoco1@gmail.com', 'jerom', '09f836894fc1fe9af6f429fc24dcccc2e6847fe0', 0),
-(5, 'test', 'test', 'test', '09078651992', 'test', 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 1);
+(5, 'gomez', 'dimple', 'test', '09078651992', 'test', 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 1);
 
 -- --------------------------------------------------------
 
