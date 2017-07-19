@@ -84,8 +84,7 @@
             <br/>
             Specie:
             <select class="form-control" id="specie">
-              <option>Sample</option>
-              <option>Data</option>
+              <?php echo $species_list; ?>
             </select>
           </div>
           <div class="col-sm-6">

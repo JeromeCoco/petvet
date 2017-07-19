@@ -212,6 +212,7 @@
 
         public function addNewPet()
         {
+            $data['species_list'] = $this->getSpeciesList();
             $data['owners_list'] = $this->getOwnersList();
             $this->load->view('AddNewPet', $data);
         }
@@ -227,6 +228,19 @@
                 $owners .= $this->load->view('lists/owners', $data, true);
             }
             return $owners;
+        }
+
+        public function getSpeciesList()
+        {
+            $specie = '';
+            $speciedetails = array();
+            $speciedetails = $this->Petvet_model->getSpecieDetails();
+            foreach ($speciedetails->result() as $row)
+            {
+                $data = (array) $row;
+                $specie .= $this->load->view('lists/species', $data, true);
+            }
+            return $specie;
         }
 
         public function addNewUserAdmin()

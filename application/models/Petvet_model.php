@@ -124,5 +124,11 @@
 	    	$selectOwners = $this->pdo->query("SELECT lastname, firstname FROM customer WHERE enabled = 1");
 	    	return $selectOwners;
 	    }
+
+	    public function getSpecieDetails()
+	    {
+	    	$selectSpecies = $this->pdo->query("SELECT name FROM specie");
+	    	return $selectSpecies;
+	    }
 	}
 ?>
