@@ -421,18 +421,11 @@ $(document).ready(function()
 	        dataType: "json",
 	        success: function(data)
 	        {
-	        	console.log(data);
 	        	$('#optBreed').html(" ");
 	        	for (var i = 0; i < data.length; i++)
 	        	{
-	        		$('#optBreed').append("<option>"
-	        			+data[i]['name']+
-	        		"<option>");
+	        		$('#optBreed').append("<option>"+data[i]['name']+"<option>");
 	        	}
-	        	/*if ($('.breed').html() == " ")
-	        	{
-
-	        	}*/
 	        }
 		});
 	});
