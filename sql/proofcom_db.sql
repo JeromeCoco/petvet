@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2017 at 06:16 PM
+-- Generation Time: Jul 19, 2017 at 05:12 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -32,6 +32,22 @@ CREATE TABLE `breed` (
   `name` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `breed`
+--
+
+INSERT INTO `breed` (`id`, `specie_id`, `name`) VALUES
+(1, 1, 'Pug'),
+(2, 1, 'Beagle'),
+(3, 1, 'German Shepherd'),
+(4, 1, 'Siberian Husky'),
+(5, 1, 'Poodle'),
+(6, 2, 'Siamese'),
+(7, 2, 'Persian'),
+(8, 2, 'Burmese'),
+(9, 2, 'Ragdoll'),
+(10, 2, 'Bengal');
+
 -- --------------------------------------------------------
 
 --
@@ -55,8 +71,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `lastname`, `firstname`, `address`, `mobile`, `email`, `username`, `password`, `enabled`) VALUES
-(3, 'test', 'haha', 'test', '09078652121', 'test', 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 1),
-(4, 'jeromewqwqw', 'cocossswqwq', 'caloocan city', '09078651995', 'jeormcoco1@gmail.com', 'jerom', '09f836894fc1fe9af6f429fc24dcccc2e6847fe0', 0);
+(3, 'test', 'test', 'test', '09078652121', 'test', 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 1),
+(4, 'jeromewqwqw', 'cocossswqwq', 'caloocan city', '09078651995', 'jeormcoco1@gmail.com', 'jerom', '09f836894fc1fe9af6f429fc24dcccc2e6847fe0', 0),
+(5, 'test', 'test', 'test', '09078651992', 'test', 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 1);
 
 -- --------------------------------------------------------
 
@@ -86,11 +103,9 @@ CREATE TABLE `doctor` (
 --
 
 INSERT INTO `doctor` (`id`, `lastname`, `firstname`, `mobile`, `mon`, `tue`, `wed`, `thur`, `fri`, `sat`, `sun`, `time_in`, `time_out`, `enabled`) VALUES
-(1, 'test', 'test', '123457890', 1, 0, 0, 0, 1, 0, 0, '08:00:00', '05:00:00', 0),
-(2, 'test', 'test', '09078751231', 1, 1, 1, 1, 1, 1, 1, '08:00:00', '04:00:00', 0),
-(3, 'test', 'test', '09456789455', 0, 0, 0, 0, 0, 0, 1, '07:00:00', '03:00:00', 1),
-(4, 'test', 'test', '0989685867865', 0, 0, 0, 0, 0, 0, 1, '08:00:00', '05:00:00', 1),
-(5, 'test', 'test', '90787697086', 0, 0, 0, 0, 0, 0, 1, '09:00:00', '05:00:00', 0);
+(1, 'coco', 'jeromessasasasasasas', '99999999999', 1, 1, 1, 1, 1, 0, 0, '06:00:00', '15:00:00', 1),
+(2, 'bcdsbcdfsdf', 'testsssssssdbfdv', '6546546', 0, 1, 1, 1, 1, 1, 0, '06:00:00', '03:00:00', 1),
+(3, 'haha', 'hahahasasa', '09078651992', 0, 1, 0, 1, 0, 0, 1, '01:59:00', '13:52:00', 1);
 
 -- --------------------------------------------------------
 
@@ -222,7 +237,8 @@ INSERT INTO `user_admin` (`id`, `username`, `password`, `enabled`) VALUES
 (1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1),
 (2, 'jerome', '09f836894fc1fe9af6f429fc24dcccc2e6847fe0', 1),
 (3, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 1),
-(4, 'test', '637d1f5c6e6d1be22ed907eb3d223d858ca396d8', 1);
+(4, 'test', '637d1f5c6e6d1be22ed907eb3d223d858ca396d8', 1),
+(5, 'haha', '637d1f5c6e6d1be22ed907eb3d223d858ca396d8', 1);
 
 --
 -- Indexes for dumped tables
@@ -296,17 +312,17 @@ ALTER TABLE `user_admin`
 -- AUTO_INCREMENT for table `breed`
 --
 ALTER TABLE `breed`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `order`
 --
@@ -341,7 +357,7 @@ ALTER TABLE `specie`
 -- AUTO_INCREMENT for table `user_admin`
 --
 ALTER TABLE `user_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
