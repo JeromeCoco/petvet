@@ -112,5 +112,11 @@
 	        $this->pdo->query($updateDoctor, array($editLastName, $editFirstName, $editMobileNumber, $mon, $tues, $wed, $thurs, $fri, $sat, $sun, $timeIn, $timeOut, $doctorid));
 	        return "Doctor details successfully updated.";
 	    }
+
+	    public function getUserDetails()
+	    {
+	    	$selectUsers = $this->pdo->query("SELECT * FROM user_admin");
+	    	return $selectUsers;
+	    }
 	}
 ?>

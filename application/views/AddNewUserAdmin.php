@@ -69,22 +69,27 @@
     <div class="col-xs-10">
       <div class="container">
         <div class="main-container">
-          <div class="btnAdd">
-            <a href="<?php echo base_url(); ?>index.php/home/addNewUser">
-              <button class="btn btn-default">Add new user</button>
-            </a>
+          <div class="addNewHeaderText">Add New User Admin <hr/> </div>
+          <div class="col-sm-12 ">
+            <div id="saveStatus">
+              <!-- Error messages -->
+            </div>
           </div>
-          <table class="table table-condensed table-striped table-bordered">
-            <thead>
-              <tr>
-                <th>User ID</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php echo $users_list; ?>
-            </tbody>
-          </table>
+          <div class="col-sm-7">
+            <input type="text" id="userName" class="form-control" placeholder="Username" />
+          </div>
+          <div class="col-sm-7">
+            <br/>
+            <input type="password" id="password" class="form-control" placeholder="Password" />
+          </div>
+          <div class="col-sm-7">
+            <br/>
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" />
+          </div>
+          <div class="col-sm-7">
+            <br/>
+            <button id="btnSaveUser" class="btn btn-success">Add user admin</button>
+          </div>
         </div>
       </div>
     </div>

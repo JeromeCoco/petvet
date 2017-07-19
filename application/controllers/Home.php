@@ -102,10 +102,30 @@
             $this->load->view('Pets');
         }
 
+        public function addnewuser()
+        {
+            $this->load->view('AddNewUserAdmin');
+        }
+        
         public function useradmin()
         {
-            $this->load->view('UserAdmin');
+            $data['users_list'] = $this->getUsersList();
+            $this->load->view('userAdmin', $data);
         }
+
+        public function getUsersList()
+        {
+            $users = '';
+            $userdetails = array();
+            $userdetails = $this->Petvet_model->getUserDetails();
+            foreach ($userdetails->result() as $row)
+            {
+                $data = (array) $row;
+                $users .= $this->load->view('lists/users', $data, true);
+            }
+            return $users;
+        }
+
 
         public function addNewMember()
         {
