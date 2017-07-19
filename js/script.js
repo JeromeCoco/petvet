@@ -87,7 +87,7 @@ $(document).ready(function()
 
 	$(document).on( "click", "#btnEditMember", function(){
 		var memberid = $(this).attr("data-id");
-		$('#myModalEdit').modal('toggle');
+		$('#myModalEditMembers').modal('toggle');
 		$.ajax({
 			url: "getMembersDetails",
 	        type: "POST",
@@ -309,5 +309,106 @@ $(document).ready(function()
 		        }
 			});
 		}
+	});
+
+	$(document).on( "click", "#btnEditDoctor", function(){
+		$('#myModalEditDoctor').modal('toggle');
+		var doctorid = $(this).attr("data-id");
+
+		$.ajax({
+			url: "getDoctorDetails",
+	        type: "POST",
+	        data: { doctorid: doctorid },
+	        dataType: "json",
+	        success: function(data)
+	        {
+	        	$('.dayOption').prop('checked', false);
+
+	        	$('#doctorId').val(data[0]['id']);
+	        	$('#editFirstName').val(data[0]['firstname']);
+	        	$('#editLastName').val(data[0]['lastname']);
+	        	$('#editMobileNumber').val(data[0]['mobile']);
+
+	        	var sun = data[0]['sun'] == 1 ? true : false;
+	        	var mon = data[0]['mon'] == 1 ? true : false;
+	        	var tues = data[0]['tue'] == 1 ? true : false;
+	        	var wed = data[0]['wed'] == 1 ? true : false;
+	        	var thurs = data[0]['thur'] == 1 ? true : false;
+	        	var fri = data[0]['fri'] == 1 ? true : false;
+	        	var sat = data[0]['sat'] == 1 ? true : false;
+
+	        	$('#editsunday').prop('checked', sun);
+	        	$('#editmonday').prop('checked', mon);
+	        	$('#edittuesday').prop('checked', tues);
+	        	$('#editwednesday').prop('checked', wed);
+	        	$('#editthursday').prop('checked', thurs);
+	        	$('#editfriday').prop('checked', fri);
+	        	$('#editsaturday').prop('checked', sat);
+
+	        	$('#editTimeIn').val(data[0]['time_in']);
+	        	$('#editTimeOut').val(data[0]['time_out']);
+	        }
+		});
+	});
+
+	$('#btnUpdateDoctor').click(function(){
+		var doctorid = $('#doctorId').val();
+		var editFirstName = $('#editFirstName').val();
+		var editLastName = $('#editLastName').val();
+		var editMobileNumber = $('#editMobileNumber').val();
+		var sun = $('#editsunday').is(":checked") ? '1' : '0';
+		var mon = $('#editmonday').is(":checked") ? '1' : '0';
+		var tues = $('#edittuesday').is(":checked") ? '1' : '0';
+		var wed = $('#editwednesday').is(":checked") ? '1' : '0';
+		var thurs = $('#editthursday').is(":checked") ? '1' : '0';
+		var fri = $('#editfriday').is(":checked") ? '1' : '0';
+		var sat = $('#editsaturday').is(":checked") ? '1' : '0';
+		var timeIn = $('#editTimeIn').val();
+		var timeOut = $('#editTimeOut').val();
+
+		$('#editStatus').html("");
+		if (editFirstName == "" || editLastName == "" || editMobileNumber == "" || timeIn == "" || timeOut == "")
+		{
+			$("#editStatus").append('<div class="alert alert-warning">' +
+				'<strong>Please enter complete details. Try again.</strong>' +
+			'</div>');
+		}
+		else
+		{
+			$.ajax({
+				url: "updateDoctor",
+		        type: "POST",
+		        data: { 
+		        	doctorid: doctorid,
+		        	editFirstName: editFirstName,
+		        	editLastName: editLastName,
+		        	editMobileNumber: editMobileNumber,
+		        	sun: sun,
+		        	mon: mon,
+		        	tues: tues,
+		        	wed: wed,
+		        	thurs: thurs,
+		        	fri: fri,
+		        	sat: sat,
+		        	timeIn: timeIn,
+		        	timeOut: timeOut
+		        },
+		        dataType: "json",
+		        success: function(data)
+		        {
+		        	$("#editStatus").append('<div class="alert alert-success">' +
+						'<strong>'+data+'</strong>' +
+					'</div>');
+					$("#firstName"+doctorid).html(editFirstName);
+					$("#lastName"+doctorid).html(editLastName);
+					$("#mobileNumber"+doctorid).html(editMobileNumber);
+		        }
+			});
+		}
+	});
+
+	$('#btnCloseEditDoctor').click(function(){
+		$('#editStatus').html("");
+		$('.dayOption').prop('checked', false);
 	});
 });

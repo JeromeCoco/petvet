@@ -219,5 +219,21 @@
             echo json_encode($data);
             exit;
         }
+
+        public function getDoctorDetails()
+        {
+            $data = array();
+            $data = $this->Petvet_model->selectDoctorDetails($_POST);
+            echo json_encode($data);
+            exit;
+        }
+
+        public function updateDoctor()
+        {
+            $data = array();
+            $data = $this->Petvet_model->updateDoctorDetails($_POST);
+            echo json_encode($data);
+            exit;
+        }
     }
 ?>

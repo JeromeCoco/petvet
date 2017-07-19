@@ -87,6 +87,7 @@
           </div>
           <div class="col-sm-12">
             <br/>
+            Set Schedule:
             <div class="checkbox">
               <label><input class="dayOption" type="checkbox" id="sunday">Sunday</label>
             </div>
@@ -112,11 +113,11 @@
           </div>
           <div class="col-sm-6">
             Time in:
-            <input type="text" id="timeIn" class="form-control" />
+            <input type="time" id="timeIn" class="form-control" />
           </div>
           <div class="col-sm-6">
             Time out:
-            <input type="text" id="timeOut" class="form-control" />
+            <input type="time" id="timeOut" class="form-control" />
           </div>
           <div class="col-sm-6">
             <br/>

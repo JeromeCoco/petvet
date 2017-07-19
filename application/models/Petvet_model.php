@@ -97,5 +97,20 @@
 	        $removeDoctor = "UPDATE doctor SET enabled = 0 WHERE id = ?";
 	        $this->pdo->query($removeDoctor, array($doctorid));
 	    }
+
+	    public function selectDoctorDetails($data)
+	    {
+	    	extract($data);
+	    	$selectDoctors = $this->pdo->query("SELECT * FROM doctor WHERE id = $doctorid");
+	    	return $selectDoctors->result();
+	    }
+
+	    public function updateDoctorDetails($data)
+	    {
+	    	extract($data);
+	    	$updateDoctor = "UPDATE doctor SET 	lastname = ?, firstname = ?, mobile = ?, mon = ?, tue = ?, wed = ?, thur = ?, fri = ?, sat = ?, sun = ?, time_in = ?, time_out = ? WHERE id = ?";
+	        $this->pdo->query($updateDoctor, array($editLastName, $editFirstName, $editMobileNumber, $mon, $tues, $wed, $thurs, $fri, $sat, $sun, $timeIn, $timeOut, $doctorid));
+	        return "Doctor details successfully updated.";
+	    }
 	}
 ?>
