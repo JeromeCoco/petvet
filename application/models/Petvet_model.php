@@ -118,5 +118,11 @@
 	    	$selectUsers = $this->pdo->query("SELECT * FROM user_admin");
 	    	return $selectUsers;
 	    }
+
+	    public function getOwnerDetails()
+	    {
+	    	$selectOwners = $this->pdo->query("SELECT lastname, firstname FROM customer WHERE enabled = 1");
+	    	return $selectOwners;
+	    }
 	}
 ?>

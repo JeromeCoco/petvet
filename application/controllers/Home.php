@@ -106,7 +106,7 @@
         {
             $this->load->view('AddNewUserAdmin');
         }
-        
+
         public function useradmin()
         {
             $data['users_list'] = $this->getUsersList();
@@ -125,7 +125,6 @@
             }
             return $users;
         }
-
 
         public function addNewMember()
         {
@@ -213,7 +212,21 @@
 
         public function addNewPet()
         {
-            $this->load->view('AddNewPet');
+            $data['owners_list'] = $this->getOwnersList();
+            $this->load->view('AddNewPet', $data);
+        }
+
+        public function getOwnersList()
+        {
+            $owners = '';
+            $ownerdetails = array();
+            $ownerdetails = $this->Petvet_model->getOwnerDetails();
+            foreach ($ownerdetails->result() as $row)
+            {
+                $data = (array) $row;
+                $owners .= $this->load->view('lists/owners', $data, true);
+            }
+            return $owners;
         }
 
         public function addNewUserAdmin()

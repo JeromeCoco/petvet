@@ -73,8 +73,7 @@
           <div class="col-sm-6">
             Owner:
             <select class="form-control" id="ownerName">
-              <option>Sample</option>
-              <option>Data</option>
+              <?php echo $owners_list; ?>
             </select>
           </div>
           <div class="col-sm-6">
