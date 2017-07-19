@@ -127,8 +127,20 @@
 
 	    public function getSpecieDetails()
 	    {
-	    	$selectSpecies = $this->pdo->query("SELECT name FROM specie");
+	    	$selectSpecies = $this->pdo->query("SELECT * FROM specie");
 	    	return $selectSpecies;
+	    }
+
+	    public function getBreedDetails($data)
+	    {
+	    	extract($data);
+	    	
+	    	$selectSpecieId = $this->pdo->query("SELECT id FROM specie WHERE name = '$speciename' ");
+	    	$specieIdResult = $selectSpecieId->result();
+	    	$id = $specieIdResult[0]->id;
+
+	    	$selectBreeds = $this->pdo->query("SELECT name FROM breed WHERE specie_id = '$id' ");
+	    	return $selectBreeds->result();
 	    }
 	}
 ?>

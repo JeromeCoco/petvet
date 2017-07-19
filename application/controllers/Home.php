@@ -282,5 +282,13 @@
             echo json_encode($data);
             exit;
         }
+
+        public function getBreed()
+        {
+            $data = array();
+            $data = $this->Petvet_model->getBreedDetails($_POST);
+            echo json_encode($data);
+            exit;
+        }
     }
 ?>

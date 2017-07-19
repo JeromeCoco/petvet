@@ -411,4 +411,29 @@ $(document).ready(function()
 		$('#editStatus').html("");
 		$('.dayOption').prop('checked', false);
 	});
+
+	$('#optSpecie').change(function(){
+		var speciename = $(this).val();
+		$.ajax({
+			url: "getBreed",
+	        type: "POST",
+	        data: { speciename: speciename },
+	        dataType: "json",
+	        success: function(data)
+	        {
+	        	console.log(data);
+	        	$('#optBreed').html(" ");
+	        	for (var i = 0; i < data.length; i++)
+	        	{
+	        		$('#optBreed').append("<option>"
+	        			+data[i]['name']+
+	        		"<option>");
+	        	}
+	        	/*if ($('.breed').html() == " ")
+	        	{
+
+	        	}*/
+	        }
+		});
+	});
 });

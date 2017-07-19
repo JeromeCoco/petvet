@@ -72,7 +72,7 @@
           <div class="addNewHeaderText">Add New Pet <hr/> </div>
           <div class="col-sm-6">
             Owner:
-            <select class="form-control" id="ownerName">
+            <select class="form-control" id="optOwnerName">
               <?php echo $owners_list; ?>
             </select>
           </div>
@@ -83,16 +83,16 @@
           <div class="col-sm-6">
             <br/>
             Specie:
-            <select class="form-control" id="specie">
+            <select class="form-control" id="optSpecie">
+              <option id="optBreedNone" disabled selected>Choose here...</option>
               <?php echo $species_list; ?>
             </select>
           </div>
           <div class="col-sm-6">
             <br/>
             Breed:
-            <select class="form-control" id="breed">
-              <option>Sample</option>
-              <option>Data</option>
+            <select class="form-control" id="optBreed">
+              <option>none</option>
             </select>
           </div>
           <div class="col-sm-6">
