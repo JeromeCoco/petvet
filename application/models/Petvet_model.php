@@ -142,5 +142,27 @@
 	    	$selectBreeds = $this->pdo->query("SELECT name FROM breed WHERE specie_id = '$id' ");
 	    	return $selectBreeds->result();
 	    }
+
+	    public function addNewPetDetails($data)
+	    {
+	    	extract($data);
+
+	    	$owner = explode(" ", $ownerName);
+	    	$selectOwnerId = $this->pdo->query("SELECT id FROM customer WHERE lastname = '$owner[1]' AND firstname = '$owner[0]' ");
+	    	$ownerIdResult = $selectOwnerId->result();
+	    	$ownerid = $ownerIdResult[0]->id;
+
+	    	$selectSpecieId = $this->pdo->query("SELECT id FROM specie WHERE name = '$specie' ");
+	    	$specieIdResult = $selectSpecieId->result();
+	    	$specieid = $specieIdResult[0]->id;
+
+			$selectBreedId = $this->pdo->query("SELECT id FROM breed WHERE name = '$breed' ");
+	    	$breedIdResult = $selectBreedId->result();
+	    	$breedid = $breedIdResult[0]->id;	    	
+
+	    	$insertPet = "INSERT INTO pet(owner_id, name, breed_id, specie_id, sex) VALUES(?, ?, ?, ?, ?)";
+	        $this->pdo->query($insertPet, array($ownerid, $petName, $breedid, $specieid, $petGender));
+	        return "New pet successfully added.";
+	    }
 	}
 ?>

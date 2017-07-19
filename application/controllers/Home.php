@@ -290,5 +290,13 @@
             echo json_encode($data);
             exit;
         }
+
+        public function saveNewPet()
+        {
+            $data = array();
+            $data = $this->Petvet_model->addNewPetDetails($_POST);
+            echo json_encode($data);
+            exit;
+        }
     }
 ?>

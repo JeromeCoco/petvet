@@ -429,4 +429,41 @@ $(document).ready(function()
 	        }
 		});
 	});
+
+	$('#btnAddNewPet').click(function(){
+		var ownerName = $('#optOwnerName').val();
+		var petName = $('#petName').val();
+		var specie = $('#optSpecie').val();
+		var breed = $('#optBreed').val();
+		var petGender = $('#petGender').val() == "Male" ? '1' : '2';
+
+		$('#saveStatus').html(" ");
+		if (petName == "" || specie == null || breed == null) 
+		{
+			$("#saveStatus").append('<div class="alert alert-warning">' +
+				'<strong>Please enter complete details. Try again.</strong>' +
+			'</div>');
+		}
+		else
+		{
+			$.ajax({
+				url: "saveNewPet",
+		        type: "POST",
+		        data: { 
+		        	ownerName: ownerName,
+		        	petName: petName,
+		        	specie: specie,
+		        	breed: breed,
+		        	petGender: petGender
+		        },
+		        dataType: "json",
+		        success: function(data)
+		        {
+		        	$("#saveStatus").append('<div class="alert alert-success">' +
+  					'<strong>'+data+'</strong>' +
+					'</div>');
+		        }
+			});
+		}
+	});
 });

@@ -70,6 +70,11 @@
       <div class="container">
         <div class="main-container">
           <div class="addNewHeaderText">Add New Pet <hr/> </div>
+          <div class="col-sm-12 ">
+            <div id="saveStatus">
+              <!-- Error messages -->
+            </div>
+          </div>
           <div class="col-sm-6">
             Owner:
             <select class="form-control" id="optOwnerName">
@@ -98,14 +103,14 @@
           <div class="col-sm-6">
             <br/>
             Gender:
-            <select class="form-control" id="breed">
+            <select class="form-control" id="petGender">
               <option>Male</option>
               <option>Female</option>
             </select>
           </div>
           <div class="col-sm-12">
             <br/>
-            <button class="btn btn-success">Add pet</button>
+            <button id="btnAddNewPet" class="btn btn-success">Add pet</button>
           </div>
         </div>
       </div>
