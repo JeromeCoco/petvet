@@ -91,53 +91,53 @@
       </div>
     </div>
     <div class="modal fade" id="myModalEditMembers" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit Member Details</h4>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-sm-12 ">
-              <div id="editStatus">
-                <!-- Error messages -->
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Edit Member Details</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-12 ">
+                <div id="editStatus">
+                  <!-- Error messages -->
+                </div>
+              </div>
+              <input type="hidden" id="editid" />
+              <div class="col-sm-6">
+                First Name:
+                <input type="text" class="form-control" id="editFirstName" placeholder="First Name" />
+              </div>
+              <div class="col-sm-6">
+                Last Name:
+                <input type="text" class="form-control" id="editLastName" placeholder="Last Name" />
+              </div>
+              <div class="col-sm-12">
+                Address:
+                <textarea class="form-control" id="editAddress" placeholder="Address"></textarea>
+              </div>
+              <div class="col-sm-6">
+                Mobile Number:
+                <input type="number" class="form-control" id="editMobileNumber" placeholder="Mobile Number" />
+              </div>
+              <div class="col-sm-6">
+                Email Address:
+                <input type="email" class="form-control" id="editEmailAddress" placeholder="Email Address" />
               </div>
             </div>
-            <input type="hidden" id="editid" />
-            <div class="col-sm-6">
-              First Name:
-              <input type="text" class="form-control" id="editFirstName" placeholder="First Name" />
-            </div>
-            <div class="col-sm-6">
-              Last Name:
-              <input type="text" class="form-control" id="editLastName" placeholder="Last Name" />
-            </div>
-            <div class="col-sm-12">
-              Address:
-              <textarea class="form-control" id="editAddress" placeholder="Address"></textarea>
-            </div>
-            <div class="col-sm-6">
-              Mobile Number:
-              <input type="number" class="form-control" id="editMobileNumber" placeholder="Mobile Number" />
-            </div>
-            <div class="col-sm-6">
-              Email Address:
-              <input type="email" class="form-control" id="editEmailAddress" placeholder="Email Address" />
-            </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" id="btnUpdateMember">Update Details</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" id="btnUpdateMember">Update Details</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src = '<?php echo base_url();?>js/tinymce/tinymce.min.js'></script>
-  <script type = 'text/javascript' src = "<?php echo base_url();?>js/jquery-1.11.3.js"></script>
-  <script type = 'text/javascript' src = "<?php echo base_url();?>js/bootstrap.min.js"></script>
-  <script type = 'text/javascript' src = "<?php echo base_url();?>js/script.js"></script>
-  <script src = "<?php echo base_url(); ?>js/tether.min.js"></script>
+    <script src = '<?php echo base_url();?>js/tinymce/tinymce.min.js'></script>
+    <script type = 'text/javascript' src = "<?php echo base_url();?>js/jquery-1.11.3.js"></script>
+    <script type = 'text/javascript' src = "<?php echo base_url();?>js/bootstrap.min.js"></script>
+    <script type = 'text/javascript' src = "<?php echo base_url();?>js/script.js"></script>
+    <script src = "<?php echo base_url(); ?>js/tether.min.js"></script>
   </body>
 </html>

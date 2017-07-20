@@ -164,5 +164,35 @@
 	        $this->pdo->query($insertPet, array($ownerid, $petName, $breedid, $specieid, $petGender));
 	        return "New pet successfully added.";
 	    }
+
+	    public function getPetDetails()
+	    {
+	    	$selectPetDetails = $this->pdo->query("SELECT pet.owner_id AS ownerid,
+	    												pet.id AS petid,
+	    												customer.firstname AS owner, 
+					    								pet.name AS petname, 
+					    								pet.sex AS gender,
+					    								specie.name AS specie,
+					    								breed.name AS breed
+				    								FROM customer, pet, specie, breed
+				    								WHERE customer.id = pet.owner_id 
+				    								AND pet.specie_id = specie.id 
+				    								AND pet.breed_id = breed.id");
+    		return $selectPetDetails;
+	    }
+
+	    public function getOwnersFullNameDetails($data)
+	    {
+	    	extract($data);
+	    	$selectOwnersId = $this->pdo->query("SELECT lastname, firstname FROM customer WHERE id = $ownerid");
+	    	return $selectOwnersId->result();
+	    }
+
+	    public function removePetDetails($data)
+	    {
+	    	extract($data);
+	    	$removeDoctor = "DELETE FROM pet WHERE id = ?";
+	        $this->pdo->query($removeDoctor, array($petid));
+	    }
 	}
 ?>

@@ -99,7 +99,23 @@
 
         public function pets()
         {
-            $this->load->view('Pets');
+            $data['species_list'] = $this->getSpeciesList();
+            $data['owners_list'] = $this->getOwnersList();
+            $data['pets_list'] = $this->getPetsList();
+            $this->load->view('Pets', $data);
+        }
+
+        public function getPetsList()
+        {
+            $pets = '';
+            $petdetails = array();
+            $petdetails = $this->Petvet_model->getPetDetails();
+            foreach ($petdetails->result() as $row)
+            {
+                $data = (array) $row;
+                $pets .= $this->load->view('lists/pets', $data, true);
+            }
+            return $pets;
         }
 
         public function addnewuser()
@@ -295,6 +311,22 @@
         {
             $data = array();
             $data = $this->Petvet_model->addNewPetDetails($_POST);
+            echo json_encode($data);
+            exit;
+        }
+
+        public function getOwnersFullName()
+        {
+            $data = array();
+            $data = $this->Petvet_model->getOwnersFullNameDetails($_POST);
+            echo json_encode($data);
+            exit;
+        }
+
+        public function removePet()
+        {
+            $data = array();
+            $data = $this->Petvet_model->removePetDetails($_POST);
             echo json_encode($data);
             exit;
         }

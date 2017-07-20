@@ -37,7 +37,8 @@ h1
 
 body
 {
-    font-family: 'gotham_bookregular';
+    /*font-family: 'gotham_bookregular';*/
+    font-family: "Verdana";
 }
 
 .navbar
