@@ -491,15 +491,20 @@ $(document).ready(function()
 
 	$(document).on( "click", "#btnRemovePet", function(){
 		var petid = $(this).attr("data-id");
-		$.ajax({
-			url: "removePet",
-	        type: "POST",
-	        data: { petid: petid },
-	        dataType: "json",
-	        success: function(data)
-	        {
-	        	$('#pet'+petid).fadeOut('slow');
-	        }
-		});
+		var confirmRemove = confirm("Are you sure you want to remove this pet?");
+
+		if (confirmRemove)
+		{
+			$.ajax({
+				url: "removePet",
+		        type: "POST",
+		        data: { petid: petid },
+		        dataType: "json",
+		        success: function(data)
+		        {
+		        	$('#pet'+petid).fadeOut('slow');
+		        }
+			});
+		}
 	});
 });
