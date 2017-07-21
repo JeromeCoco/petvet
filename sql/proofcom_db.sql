@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2017 at 06:20 PM
+-- Generation Time: Jul 21, 2017 at 06:42 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -73,7 +73,7 @@ CREATE TABLE `customer` (
 INSERT INTO `customer` (`id`, `lastname`, `firstname`, `address`, `mobile`, `email`, `username`, `password`, `enabled`) VALUES
 (3, 'coco', 'jerome', 'test', '09078652121', 'test', 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 1),
 (4, 'jeromewqwqw', 'cocossswqwq', 'caloocan city', '09078651995', 'jeormcoco1@gmail.com', 'jerom', '09f836894fc1fe9af6f429fc24dcccc2e6847fe0', 0),
-(5, 'gomez', 'dimple', 'test', '09078651992', 'test', 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 1);
+(5, 'test', 'test', 'test', '09078651992', 'test', 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 1);
 
 -- --------------------------------------------------------
 
@@ -154,6 +154,15 @@ CREATE TABLE `pet` (
   `specie_id` int(11) NOT NULL,
   `sex` tinyint(1) NOT NULL COMMENT '1 - Male, 2 - Female'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pet`
+--
+
+INSERT INTO `pet` (`id`, `owner_id`, `name`, `breed_id`, `specie_id`, `sex`) VALUES
+(2, 5, 'mingming', 7, 3, 2),
+(3, 3, 'cdscds', 1, 1, 1),
+(5, 5, 'hahaha', 8, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -337,7 +346,7 @@ ALTER TABLE `order_line`
 -- AUTO_INCREMENT for table `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `product`
 --
