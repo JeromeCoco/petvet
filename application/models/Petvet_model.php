@@ -8,6 +8,14 @@
 	      	$this->pdo = $this->load->database('pdo', true);
 	    }
 
+	    public function checkUserAdmin($data)
+	    {
+	    	extract($data);
+	    	$encodePassword = hash('sha1', $password);
+	    	$selectUser = $this->pdo->query("SELECT username, password FROM user_admin WHERE username = '$username' AND password = '$encodePassword' ");
+	    	return $selectUser->result();
+	    }
+
 	    public function saveMember($data)
 	    {
 	    	extract($data);
@@ -202,7 +210,7 @@
 	    	$selectMember = $this->pdo->query("SELECT * FROM customer WHERE id = $id");
 	    	$details['memberDetails'] = $selectMember->result();
 
-	    	$selectPets = $this->pdo->query("SELECT name FROM pet WHERE owner_id = $id");
+	    	$selectPets = $this->pdo->query("SELECT id, name FROM pet WHERE owner_id = $id");
 	    	$details['petDetails'] = $selectPets->result();
 
 	    	return $details;

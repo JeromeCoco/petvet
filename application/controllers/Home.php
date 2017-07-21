@@ -12,14 +12,38 @@
             $this->load->helper('url');
             $this->load->model('Petvet_model');
             $this->load->helper('form');
+
+            $path = explode("/", $_SERVER['PATH_INFO']);
+            if ($path[2] != "index" && $this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
         }
 
         public function hello()
         {
             $args = $GLOBALS['params'];
-            $data = array();
             echo $_SERVER['PATH_INFO'];
             var_dump($args);
+        }
+
+        public function logIn()
+        {
+            $data = array();
+            $data = $this->Petvet_model->checkUserAdmin($_POST);
+            foreach($data as $user)
+            {
+                $row = (array) $user;
+                $this->session->set_userdata('uname', $row["username"]);
+            }
+            echo json_encode($data);
+            exit;
+        }
+
+        public function unsetSession()
+        {
+            $this->session->unset_userdata("uname");
+            exit;
         }
 
         public function index($args = array()) {

@@ -131,3 +131,13 @@ body
 {
     width: 70px;
 }
+
+#logInContainer
+{
+    width: 500px;
+    margin: auto;
+    margin-top: 200px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 40px;
+}

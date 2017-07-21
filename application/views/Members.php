@@ -36,16 +36,13 @@
             <li><a href="#">Page 3</a></li>
           </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+              <li><a id="btnLogOut" href="index"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
             </ul>
         </div>
       </div>
     </nav>
     <div class="left-nav col-xs-2">
       <ul class="list-group">
-        <a href="<?php echo base_url(); ?>index.php/home/index">
-          <li class="list-group-item">Dashboard </li>
-        </a>
         <a href="<?php echo base_url(); ?>index.php/home/products">
           <li class="list-group-item">Products </li>
         </a>

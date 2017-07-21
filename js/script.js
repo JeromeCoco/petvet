@@ -10,6 +10,19 @@ $(document).ready(function()
 	    $('.left-nav').ToggleClass("active");
 	});*/
 
+	$('#btnLogOut').click(function(){
+		$.ajax({
+			url: "unsetSession",
+	        type: "POST",
+	        data: { },
+	        dataType: "json",
+	        success: function(data)
+	        {
+	        	window.location = "index";
+	        }
+		});
+	});
+
 	tinymce.init({
         selector: '#textareatinymce',
         height: 300,
@@ -529,8 +542,36 @@ $(document).ready(function()
 
 	        	for (var i = 0; i < data['petDetails'].length; i++)
 	        	{
-	        		$('#petsList').append("- "+data['petDetails'][i]['name'] + "<br/>");
+	        		$('#petsList').append("<a href='pets/"+ data['petDetails'][i]['id'] +"'>" + data['petDetails'][i]['name'] + "</a><br/>");
 	        	}
+	        }
+		});
+	});
+
+	$('#btnLogIn').click(function(){
+		var username = $('#userName').val();
+		var password = $('#password').val();
+
+		$.ajax({
+			url: "logIn",
+	        type: "POST",
+	        data: { 
+	        	username: username,
+	        	password: password
+	        },
+	        dataType: "json",
+	        success: function(data)
+	        {
+	        	if (data.length == 0)
+				{
+					$('#logInStatus').html('<br/><div class="alert alert-danger">' +
+  						'<strong>Please check your username and password. Try again.</strong>' +
+					'</div>');
+				}
+				else
+				{
+					window.location = "products";
+				}
 	        }
 		});
 	});
