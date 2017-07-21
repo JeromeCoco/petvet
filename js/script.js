@@ -507,4 +507,31 @@ $(document).ready(function()
 			});
 		}
 	});
+
+	$(document).on( "click", "#btnViewMember", function(){
+		var id = $(this).attr("data-id");
+		$('#myModalViewMembers').modal('toggle');
+
+		$.ajax({
+			url: "getMembersDetailsForView",
+	        type: "POST",
+	        data: { id: id },
+	        dataType: "json",
+	        success: function(data)
+	        {
+	        	$('#petsList').html(" ");
+	        	console.log(data);
+	        	var fullname = data['memberDetails'][0]['firstname'] + " " + data['memberDetails'][0]['lastname'];
+	        	$('#fullName').html(fullname);
+	        	$('#address').html(data['memberDetails'][0]['address']);
+	        	$('#mobile').html(data['memberDetails'][0]['mobile']);
+	        	$('#email').html(data['memberDetails'][0]['email']);
+
+	        	for (var i = 0; i < data['petDetails'].length; i++)
+	        	{
+	        		$('#petsList').append("- "+data['petDetails'][i]['name'] + "<br/>");
+	        	}
+	        }
+		});
+	});
 });

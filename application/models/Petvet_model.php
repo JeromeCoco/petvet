@@ -194,5 +194,18 @@
 	    	$removeDoctor = "DELETE FROM pet WHERE id = ?";
 	        $this->pdo->query($removeDoctor, array($petid));
 	    }
+
+	    public function getMembersDetailsAndPets($data)
+	    {
+	    	extract($data);
+
+	    	$selectMember = $this->pdo->query("SELECT * FROM customer WHERE id = $id");
+	    	$details['memberDetails'] = $selectMember->result();
+
+	    	$selectPets = $this->pdo->query("SELECT name FROM pet WHERE owner_id = $id");
+	    	$details['petDetails'] = $selectPets->result();
+
+	    	return $details;
+	    }
 	}
 ?>

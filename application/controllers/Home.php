@@ -330,5 +330,13 @@
             echo json_encode($data);
             exit;
         }
+
+        public function getMembersDetailsForView()
+        {
+            $data = array();
+            $data = $this->Petvet_model->getMembersDetailsAndPets($_POST);
+            echo json_encode($data);
+            exit;
+        }
     }
 ?>
