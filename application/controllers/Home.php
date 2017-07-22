@@ -329,6 +329,30 @@
             }
         }
 
+        public function updateService()
+        {
+            $config['upload_path']          = './www/images/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 5000;
+            $config['max_width']            = 5000;
+            $config['max_height']           = 5000;
+
+            $this->load->library('upload', $config);
+
+            if (! $this->upload->do_upload('userfile') || $_POST['editServiceName'] == "" || $_POST['editServiceDescription'] == "" || $_POST['editServicePrice'] == "")
+            {
+                $error = array('error' => "<div class='alert alert-warning errmess' role='alert'><center>Please enter valid information. Try again.</center></div>");
+                $this->load->view('EditService', $error);
+            }
+            else
+            {
+                $success = array('error' => "<div class='alert alert-success errmess' role='alert'><center>Service successfully updated.</center></div>");
+                $this->load->view('EditService', $success);
+                $upload = array();
+                $upload = $this->Petvet_model->updateServiceDetails($_POST);
+            }
+        }
+
         public function removeProduct()
         {
             $data = array();
@@ -485,6 +509,48 @@
         {
             $data = array();
             $data = $this->Petvet_model->deleteService($_POST);
+            echo json_encode($data);
+            exit;
+        }
+
+        public function editService()
+        {
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $this->load->view('EditService');
+            }
+        }
+
+        public function editProduct()
+        {
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $this->load->view('EditProduct');
+            }
+        }
+
+        public function getEditServiceDetails()
+        {
+            $data = array();
+            $data = $this->Petvet_model->getServiceEditDetails($_POST);
+            $data['decoded'] = html_entity_decode($data[0]->description);
+            echo json_encode($data);
+            exit;
+        }
+
+        public function getEditProductDetails()
+        {
+            $data = array();
+            $data = $this->Petvet_model->getProductEditDetails($_POST);
+            $data['decoded'] = html_entity_decode($data[0]->description);
             echo json_encode($data);
             exit;
         }

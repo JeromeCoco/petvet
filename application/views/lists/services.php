@@ -7,7 +7,7 @@
 		</a>
 	</td>
 	<td>
-		<button id="btnEditService" class="btn btn-default" data-id="<?php echo $id; ?>">Edit</button>
+		<a href="editService/<?php echo $id; ?>"><button id="btnEditService" class="btn btn-default" data-id="<?php echo $id; ?>">Edit</button></a>
 		<button id="btnRemoveService" class="btn btn-danger" data-id="<?php echo $id; ?>">Remove</button>
 	</td>
 </tr>

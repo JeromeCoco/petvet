@@ -70,6 +70,14 @@
 	        $this->pdo->query($insertService, array($serviceName, $serviceDescriptionEncoded, $servicePrice, $filename, 1));
 	    }
 
+	    public function updateServiceDetails($data)
+	    {
+	    	extract($data);
+	    	$editServiceDescriptionEncoded = htmlentities($editServiceDescription);
+	    	$insertService = "UPDATE service SET name = ?, description = ?, price = ?, image = ? WHERE id = ?";
+	        $this->pdo->query($insertService, array($editServiceName, $editServiceDescriptionEncoded, $editServicePrice, $filename, $serviceid));
+	    }
+
 	    public function getProductDetails()
 	    {
 	    	$selectProducts = $this->pdo->query("SELECT * FROM product WHERE enabled = 1");
@@ -236,6 +244,20 @@
 	        $removeService = "UPDATE service SET enabled = 0 WHERE id = ?";
 	        $this->pdo->query($removeService, array($id));
 	        return "Service successfully removed.";
+	    }
+
+	    public function getServiceEditDetails($data)
+	    {
+	    	extract($data);
+	    	$selectServicesDetails = $this->pdo->query("SELECT * FROM service WHERE id = '$lastSegment' ");
+	    	return $selectServicesDetails->result();
+	    }
+
+	    public function getProductEditDetails($data)
+	    {
+	    	extract($data);
+	    	$selectProductDetails = $this->pdo->query("SELECT * FROM product WHERE id = '$lastSegment' ");
+	    	return $selectProductDetails->result();
 	    }
 	}
 ?>
