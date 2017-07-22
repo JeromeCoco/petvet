@@ -14,10 +14,6 @@
             $this->load->helper('form');
 
             $path = explode("/", $_SERVER['PATH_INFO']);
-            if ($path[2] != "index" && $this->session->uname == NULL)
-            {
-                header('Location: index');
-            }
         }
 
         public function hello()
@@ -61,8 +57,15 @@
         
         public function products()
         {
-            $data['products_list'] = $this->getProductsList();
-            $this->load->view('Products', $data);
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $data['products_list'] = $this->getProductsList();
+                $this->load->view('Products', $data);
+            }
         }
 
         public function getProductsList()
@@ -80,13 +83,27 @@
 
         public function services()
         {
-            $this->load->view('Services');
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $this->load->view('Services');
+            }
         }
 
         public function doctors()
         {
-            $data['doctors_list'] = $this->getDoctorsList();
-            $this->load->view('Doctors', $data);
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $data['doctors_list'] = $this->getDoctorsList();
+                $this->load->view('Doctors', $data);
+            }
         }
 
         public function getDoctorsList()
@@ -104,8 +121,15 @@
 
         public function members()
         {
-            $data['members_list'] = $this->getMembersList();
-            $this->load->view('Members', $data);
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $data['members_list'] = $this->getMembersList();
+                $this->load->view('Members', $data);
+            }
         }
 
         public function getMembersList()
@@ -123,10 +147,17 @@
 
         public function pets()
         {
-            $data['species_list'] = $this->getSpeciesList();
-            $data['owners_list'] = $this->getOwnersList();
-            $data['pets_list'] = $this->getPetsList();
-            $this->load->view('Pets', $data);
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $data['species_list'] = $this->getSpeciesList();
+                $data['owners_list'] = $this->getOwnersList();
+                $data['pets_list'] = $this->getPetsList();
+                $this->load->view('Pets', $data);
+            }
         }
 
         public function getPetsList()
@@ -144,13 +175,27 @@
 
         public function addnewuser()
         {
-            $this->load->view('AddNewUserAdmin');
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $this->load->view('AddNewUserAdmin');
+            }
         }
 
         public function useradmin()
         {
-            $data['users_list'] = $this->getUsersList();
-            $this->load->view('userAdmin', $data);
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $data['users_list'] = $this->getUsersList();
+                $this->load->view('userAdmin', $data);
+            }
         }
 
         public function getUsersList()
@@ -168,7 +213,14 @@
 
         public function addNewMember()
         {
-            $this->load->view('AddNewMember');
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $this->load->view('AddNewMember');
+            }
         }
 
         public function saveNewMember()
@@ -205,7 +257,14 @@
 
         public function addNewProduct()
         {
-            $this->load->view('addNewProduct');
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $this->load->view('addNewProduct');
+            }
         }
 
         public function saveProduct()
@@ -242,19 +301,40 @@
 
         public function addNewDoctor()
         {
-            $this->load->view('AddNewDoctor');
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $this->load->view('AddNewDoctor');
+            }
         }
 
         public function addNewService()
         {
-            $this->load->view('AddNewService');
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $this->load->view('AddNewService');
+            }
         }
 
         public function addNewPet()
         {
-            $data['species_list'] = $this->getSpeciesList();
-            $data['owners_list'] = $this->getOwnersList();
-            $this->load->view('AddNewPet', $data);
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $data['species_list'] = $this->getSpeciesList();
+                $data['owners_list'] = $this->getOwnersList();
+                $this->load->view('AddNewPet', $data);
+            }
         }
 
         public function getOwnersList()
