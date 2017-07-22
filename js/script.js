@@ -576,7 +576,22 @@ $(document).ready(function()
 		});
 	});
 
-	$('#btnAddService').click(function(){
-		console.log(1);
+	$(document).on( "click", "#btnRemoveService", function(){
+		var id = $(this).attr("data-id");
+		var confirmRemove = confirm("Are you sure you want to remove this service?");
+
+		if (confirmRemove)
+		{
+			$.ajax({
+				url: "removeService",
+		        type: "POST",
+		        data: { id: id },
+		        dataType: "json",
+		        success: function(data)
+		        {
+		        	$('#service'+id).fadeOut('slow');
+		        }
+			});
+		}
 	});
 });

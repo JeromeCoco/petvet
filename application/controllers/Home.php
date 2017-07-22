@@ -480,5 +480,13 @@
             echo json_encode($data);
             exit;
         }
+
+        public function removeService()
+        {
+            $data = array();
+            $data = $this->Petvet_model->deleteService($_POST);
+            echo json_encode($data);
+            exit;
+        }
     }
 ?>

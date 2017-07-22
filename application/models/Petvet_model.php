@@ -229,5 +229,13 @@
 	    	$selectServices = $this->pdo->query("SELECT * FROM service WHERE enabled = 1");
 	    	return $selectServices;
 	    }
+
+	    public function deleteService($data)
+	    {
+	    	extract($data);
+	        $removeService = "UPDATE service SET enabled = 0 WHERE id = ?";
+	        $this->pdo->query($removeService, array($id));
+	        return "Service successfully removed.";
+	    }
 	}
 ?>
