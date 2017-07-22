@@ -111,14 +111,17 @@
                 <input type="text" class="form-control" id="editLastName" placeholder="Last Name" />
               </div>
               <div class="col-sm-12">
+                <br/>
                 Address:
                 <textarea class="form-control" id="editAddress" placeholder="Address"></textarea>
               </div>
               <div class="col-sm-6">
+                <br/>
                 Mobile Number:
                 <input type="number" class="form-control" id="editMobileNumber" placeholder="Mobile Number" />
               </div>
               <div class="col-sm-6">
+                <br/>
                 Email Address:
                 <input type="email" class="form-control" id="editEmailAddress" placeholder="Email Address" />
               </div>
