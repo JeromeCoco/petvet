@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2017 at 06:42 PM
+-- Generation Time: Jul 22, 2017 at 07:39 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -185,8 +185,9 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `name`, `description`, `price`, `image`, `enabled`) VALUES
 (1, 'test', '&lt;p&gt;test&lt;/p&gt;', '900.00', 'csd.png', 0),
-(2, 'test', '&lt;p&gt;&lt;em&gt;&lt;strong&gt;twcdjk&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;', '90.00', 'COCO.png', 1),
-(3, 'sample', '&lt;ol&gt;\r\n&lt;li&gt;&lt;em&gt;this is a test&lt;/em&gt;&lt;/li&gt;\r\n&lt;/ol&gt;', '700.00', 'imagesO93WZ1AT.jpg', 1);
+(2, 'test', '&lt;p&gt;&lt;em&gt;&lt;strong&gt;twcdjk&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;', '90.00', 'COCO.png', 0),
+(3, 'sample', '&lt;ol&gt;\r\n&lt;li&gt;&lt;em&gt;this is a test&lt;/em&gt;&lt;/li&gt;\r\n&lt;/ol&gt;', '700.00', 'imagesO93WZ1AT.jpg', 1),
+(4, 'test', '&lt;p&gt;test&lt;/p&gt;', '500.00', 'COCO.png', 1);
 
 -- --------------------------------------------------------
 
@@ -202,6 +203,14 @@ CREATE TABLE `service` (
   `image` varchar(125) NOT NULL,
   `enabled` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `service`
+--
+
+INSERT INTO `service` (`id`, `name`, `description`, `price`, `image`, `enabled`) VALUES
+(1, 'Service1', '&lt;p&gt;&lt;strong&gt;test service&lt;/strong&gt;&lt;/p&gt;', '5000.00', 'imagesO93WZ1AT.jpg', 1),
+(2, 'Haha', '&lt;p&gt;testlang&lt;/p&gt;', '899.00', 'csd.png', 1);
 
 -- --------------------------------------------------------
 
@@ -351,12 +360,12 @@ ALTER TABLE `pet`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `specie`
 --
