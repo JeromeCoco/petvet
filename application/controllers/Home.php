@@ -89,8 +89,22 @@
             }
             else
             {
-                $this->load->view('Services');
+                $data['services_list'] = $this->getServicesList();
+                $this->load->view('Services', $data);
             }
+        }
+
+        public function getServicesList()
+        {
+            $services = '';
+            $servicesdetails = array();
+            $servicesdetails = $this->Petvet_model->getServicesDetails();
+            foreach ($servicesdetails->result() as $row)
+            {
+                $data = (array) $row;
+                $services .= $this->load->view('lists/services', $data, true);
+            }
+            return $services;
         }
 
         public function doctors()

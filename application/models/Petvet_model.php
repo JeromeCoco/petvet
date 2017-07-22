@@ -223,5 +223,11 @@
 
 	    	return $details;
 	    }
+
+	    public function getServicesDetails()
+	    {
+	    	$selectServices = $this->pdo->query("SELECT * FROM service WHERE enabled = 1");
+	    	return $selectServices;
+	    }
 	}
 ?>

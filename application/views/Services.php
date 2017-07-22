@@ -81,7 +81,7 @@
               </tr>
             </thead>
             <tbody>
-              <?php //echo $services_list; ?>
+              <?php echo $services_list; ?>
             </tbody>
           </table>
         </div>
