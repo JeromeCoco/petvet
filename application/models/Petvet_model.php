@@ -62,6 +62,14 @@
 	        $this->pdo->query($insertProduct, array($productName, $productDescriptionEncoded, $productPrice, $filename, 1));
 	    }
 
+	    public function saveServiceDetails($data)
+	    {
+	    	extract($data);
+	    	$serviceDescriptionEncoded = htmlentities($serviceDescription);
+	        $insertService = "INSERT INTO service(name, description, price, image, enabled) VALUES(?, ?, ?, ?, ?)";
+	        $this->pdo->query($insertService, array($serviceName, $serviceDescriptionEncoded, $servicePrice, $filename, 1));
+	    }
+
 	    public function getProductDetails()
 	    {
 	    	$selectProducts = $this->pdo->query("SELECT * FROM product WHERE enabled = 1");

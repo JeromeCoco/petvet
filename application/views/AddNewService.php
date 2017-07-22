@@ -95,7 +95,7 @@
             <div class="col-sm-6">
               <br/>
               <input type="hidden" name="filename" id="filename"/> <!-- This is the filename -->
-              <input type="submit" class="btn btn-success" value="Add service"/>
+              <input id="btnAddService" type="submit" class="btn btn-success" value="Add service"/>
             </div>
           </form>
         </div>

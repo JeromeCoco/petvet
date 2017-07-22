@@ -291,6 +291,30 @@
             }
         }
 
+        public function saveService()
+        {
+            $config['upload_path']          = './www/images/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 5000;
+            $config['max_width']            = 5000;
+            $config['max_height']           = 5000;
+
+            $this->load->library('upload', $config);
+
+            if (! $this->upload->do_upload('userfile') || $_POST['serviceName'] == "" || $_POST['serviceDescription'] == "" || $_POST['servicePrice'] == "")
+            {
+                $error = array('error' => "<div class='alert alert-warning errmess' role='alert'><center>Please enter valid information. Try again.</center></div>");
+                $this->load->view('addNewService', $error);
+            }
+            else
+            {
+                $success = array('error' => "<div class='alert alert-success errmess' role='alert'><center>New product successfully added.</center></div>");
+                $this->load->view('addNewService', $success);
+                $upload = array();
+                $upload = $this->Petvet_model->saveServiceDetails($_POST);
+            }
+        }
+
         public function removeProduct()
         {
             $data = array();

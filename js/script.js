@@ -575,4 +575,8 @@ $(document).ready(function()
 	        }
 		});
 	});
+
+	$('#btnAddService').click(function(){
+		console.log(1);
+	});
 });
