@@ -22,6 +22,7 @@
           success: function(data)
           {
             console.log(data);
+            $('#petid').val(data[0]['petid']);
             $('#ownerName').html(data[0]['owner']);
             $('#petName').val(data[0]['petname']);
             $('#optSpecie').val(data[0]['specie']);
@@ -118,6 +119,7 @@
           </div>
           <div class="col-sm-12">
             Owner:
+            <input type="hidden" id="petid"/>
             <div id="ownerName"></div>
             <br/>
           </div>
@@ -126,7 +128,6 @@
             <input type="text" id="petName" class="form-control"/>
           </div>
           <div class="col-sm-6">
-            
             Specie:
             <select class="form-control" id="optSpecie">
               <option disabled selected>Choose here...</option>
@@ -137,7 +138,7 @@
             <br/>
             Breed:
             <select class="form-control" id="optBreed">
-              <option>none</option>
+                <?php echo $breed_list; ?>
             </select>
           </div>
           <div class="col-sm-6">

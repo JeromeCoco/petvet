@@ -521,7 +521,6 @@ $(document).ready(function()
 	        success: function(data)
 	        {
 	        	$('#petsList').html(" ");
-	        	console.log(data);
 	        	var fullname = data['memberDetails'][0]['firstname'] + " " + data['memberDetails'][0]['lastname'];
 	        	$('#fullName').html(fullname);
 	        	$('#address').html(data['memberDetails'][0]['address']);
@@ -585,7 +584,6 @@ $(document).ready(function()
 
 	$(document).on( "click", "#btnEditService", function(){
 		var id = $(this).attr("data-id");
-		console.log(id);
 	});
 
 	$('#btnUpdateService').click(function(){
@@ -660,5 +658,42 @@ $(document).ready(function()
 
 	$('#tryAgain').click(function(){
 		history.go(-1);
+    });
+
+    $('#btnUpdatePet').click(function(){
+    	var id = $('#petid').val();
+		var petName = $('#petName').val();
+		var optSpecie = $('#optSpecie').val();
+		var optBreed = $('#optBreed').val();
+		var petGender = $('#petGender').val();
+
+		$("#saveStatus").html(" ");
+		if (petName == "" || optBreed == "")
+		{
+			$("#saveStatus").append('<div class="alert alert-warning">' +
+				'<strong>Please enter complete details. Try again.</strong>' +
+			'</div>');
+		}
+		else
+		{
+			$.ajax({
+				url: "../updatePet",
+		        type: "POST",
+		        data: { 
+		        	id: id,
+		        	petName: petName,
+		        	optSpecie: optSpecie,
+		        	optBreed: optBreed,
+		        	petGender: petGender
+		        },
+		        dataType: "json",
+		        success: function(data)
+		        {
+		        	$("#saveStatus").append('<div class="alert alert-success">' +
+  						'<strong>'+data+'</strong>' +
+					'</div>');
+		        }
+			});
+		}
     });
 });

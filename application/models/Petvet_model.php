@@ -163,6 +163,12 @@
 	    	return $selectSpecies;
 	    }
 
+	    public function getAllBreedDetails()
+	    {
+	    	$selectBreeds = $this->pdo->query("SELECT name FROM breed");
+	    	return $selectBreeds;
+	    }
+
 	    public function getBreedDetails($data)
 	    {
 	    	extract($data);
@@ -190,7 +196,7 @@
 
 			$selectBreedId = $this->pdo->query("SELECT id FROM breed WHERE name = '$breed' ");
 	    	$breedIdResult = $selectBreedId->result();
-	    	$breedid = $breedIdResult[0]->id;	    	
+	    	$breedid = $breedIdResult[0]->id;
 
 	    	$insertPet = "INSERT INTO pet(owner_id, name, breed_id, specie_id, sex) VALUES(?, ?, ?, ?, ?)";
 	        $this->pdo->query($insertPet, array($ownerid, $petName, $breedid, $specieid, $petGender));
@@ -300,6 +306,25 @@
 	        $updateProduct = "UPDATE product SET name = ?, description = ?, price = ? WHERE id = ?";
 	        $this->pdo->query($updateProduct, array($editProductName, $textareatinymce, $editProductPrice, $id));
 	        return "Product successfully updated.";
+	    }
+
+	    public function updatePetDetails($data)
+	    {
+	    	extract($data);
+
+	    	$selectSpecieId = $this->pdo->query("SELECT id FROM specie WHERE name = '$optSpecie' ");
+	    	$specieIdResult = $selectSpecieId->result();
+	    	$specieid = $specieIdResult[0]->id;
+
+			$selectBreedId = $this->pdo->query("SELECT id FROM breed WHERE name = '$optBreed' ");
+	    	$breedIdResult = $selectBreedId->result();
+	    	$breedid = $breedIdResult[0]->id;
+
+	    	$gender = $petGender == "Male" ? '1' : '0';
+
+	    	$updatePet = "UPDATE pet SET name = ?, breed_id = ?, specie_id = ?, sex = ? WHERE id = ?";
+	        $this->pdo->query($updatePet, array($petName, $breedid, $specieid, $gender, $id));
+	        return "Pet successfully updated.";
 	    }
 	}
 ?>

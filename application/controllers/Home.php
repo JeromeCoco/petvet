@@ -613,9 +613,31 @@
             }
             else
             {
+                $data['breed_list'] = $this->getBreedsList();
                 $data['species_list'] = $this->getSpeciesList();
                 $this->load->view('EditPets', $data);
             }
+        }
+
+        public function getBreedsList()
+        {
+            $breed = '';
+            $breeddetails = array();
+            $breeddetails = $this->Petvet_model->getAllBreedDetails();
+            foreach ($breeddetails->result() as $row)
+            {
+                $data = (array) $row;
+                $breed .= $this->load->view('lists/breeds', $data, true);
+            }
+            return $breed;
+        }
+
+        public function updatePet()
+        {
+            $data = array();
+            $data = $this->Petvet_model->updatePetDetails($_POST);
+            echo json_encode($data);
+            exit;
         }
     }
 ?>
