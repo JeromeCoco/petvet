@@ -490,28 +490,6 @@ $(document).ready(function()
 		}
 	});
 
-	$(document).on( "click", "#btnEditPet", function(){
-		var petid = $(this).attr("data-id");
-		var ownerid = $(this).attr("owner-id");
-		$('#myModalEditPets').modal('toggle');
-
-		$.ajax({
-			url: "getOwnersFullName",
-	        type: "POST",
-	        data: { ownerid: ownerid },
-	        dataType: "json",
-	        success: function(data)
-	        {
-	        	var owner = data[0]['firstname'] + " " + data[0]['lastname'];
-				$('#optOwnerName').val(owner);
-				$('#petName').val($('#petname'+petid).html());
-				$('#optSpecie').val($('#specie'+petid).html());
-				$('#optBreed').val($('#breed'+petid).html());
-				$('#petGender').val($('#gender'+petid).html());
-	        }
-		});
-	});
-
 	$(document).on( "click", "#btnRemovePet", function(){
 		var petid = $(this).attr("data-id");
 		var confirmRemove = confirm("Are you sure you want to remove this pet?");
@@ -552,7 +530,7 @@ $(document).ready(function()
 
 	        	for (var i = 0; i < data['petDetails'].length; i++)
 	        	{
-	        		$('#petsList').append("<a href='pets/"+ data['petDetails'][i]['id'] +"'>" + data['petDetails'][i]['name'] + "</a><br/>");
+	        		$('#petsList').append("<a href='editPets/"+ data['petDetails'][i]['id'] +"'>" + data['petDetails'][i]['name'] + "</a><br/>");
 	        	}
 	        }
 		});

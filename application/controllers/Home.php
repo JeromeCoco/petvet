@@ -174,6 +174,14 @@
             }
         }
 
+        public function getPetCompleteDetails()
+        {
+            $data = array();
+            $data = $this->Petvet_model->getPetCompleteOwnerDetails($_POST);
+            echo json_encode($data);
+            exit;
+        }
+
         public function getPetsList()
         {
             $pets = '';
@@ -595,6 +603,19 @@
             $data = $this->Petvet_model->updateProductsDetails($_POST);
             echo json_encode($data);
             exit;
+        }
+
+        public function editPets()
+        {
+            if ($this->session->uname == NULL)
+            {
+                header('Location: index');
+            }
+            else
+            {
+                $data['species_list'] = $this->getSpeciesList();
+                $this->load->view('EditPets', $data);
+            }
         }
     }
 ?>

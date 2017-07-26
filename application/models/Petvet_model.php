@@ -213,6 +213,24 @@
     		return $selectPetDetails;
 	    }
 
+	    public function getPetCompleteOwnerDetails($data)
+	    {
+	    	extract($data);
+	    	$selectPetCompleteDetails = $this->pdo->query("SELECT pet.owner_id AS ownerid,
+	    												pet.id AS petid,
+	    												customer.firstname AS owner, 
+					    								pet.name AS petname, 
+					    								pet.sex AS gender,
+					    								specie.name AS specie,
+					    								breed.name AS breed
+				    								FROM customer, pet, specie, breed
+				    								WHERE pet.id = '$id'
+				    								AND customer.id = pet.owner_id 
+				    								AND pet.specie_id = specie.id 
+				    								AND pet.breed_id = breed.id");
+    		return $selectPetCompleteDetails->result();
+	    }
+
 	    public function getOwnersFullNameDetails($data)
 	    {
 	    	extract($data);

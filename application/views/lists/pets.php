@@ -6,7 +6,9 @@
 	<?php $translateGender = $gender == '1' ? "Male" : "Female"; ?>
 	<td id="<?php echo "gender".$petid; ?>"><?php echo $translateGender; ?></td>
 	<td>
-		<button id="btnEditPet" class="btn btn-default" data-id="<?php echo $petid; ?>" owner-id="<?php echo $ownerid; ?>">Edit</button>
+		<a href="editPets/<?php echo $petid; ?>">
+			<button id="btnEditPet" class="btn btn-default">Edit</button>
+		</a>
 		<button id="btnRemovePet" class="btn btn-danger" data-id="<?php echo $petid; ?>">Remove</button>
 	</td>
 </tr>
