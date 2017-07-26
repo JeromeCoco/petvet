@@ -141,3 +141,8 @@ body
     border-radius: 5px;
     padding: 40px;
 }
+
+#btnSubmit, #fileService
+{
+    display: none;
+}

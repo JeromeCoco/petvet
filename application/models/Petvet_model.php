@@ -259,5 +259,13 @@
 	    	$selectProductDetails = $this->pdo->query("SELECT * FROM product WHERE id = '$lastSegment' ");
 	    	return $selectProductDetails->result();
 	    }
+
+	    public function updateServicesDetails($data)
+	    {
+	    	extract($data);
+	        $updateService = "UPDATE service SET name = ?, description = ?, price = ? WHERE id = ?";
+	        $this->pdo->query($updateService, array($editServiceName, $textareatinymce, $editServicePrice, $id));
+	        return "Service successfully updated.";
+	    }
 	}
 ?>

@@ -22,14 +22,25 @@
           dataType: "json",
           success: function(data)
           {
-            $('#editServiceName').val(data[0]['id']);
+            $('#serviceid').val(data[0]['id']);
             $('#editServiceName').val(data[0]['name']);
             setTimeout(function(){
               tinyMCE.activeEditor.setContent(data['decoded']);
             },1000);
+            $('#filename').val(data[0]['image']);
             $('#editServicePrice').val(data[0]['price']);
             $('#currentImage').html("<img src='"+window.location.origin+"/www/images/"+data[0]['image']+"' style='width:300px'>");
           }
+        });
+
+        $('#showInputFile').click(function(){
+          $("#btnSubmit").css('display', 'block');
+          $("#btnUpdateService").css('display', 'none');
+          $("#fileService").css('display', 'block');
+        });
+
+        $('#tryAgain').click(function(){
+          history.go(-1);
         });
       });
     </script>
@@ -94,7 +105,7 @@
       <div class="container">
         <div class="main-container">
           <div class="addNewHeaderText">Edit Service Details<hr/> </div>
-          <div class="col-sm-12 ">
+          <div id="updateStatus" class="col-sm-12">
             <?php 
               if (isset($error))
               {
@@ -114,20 +125,27 @@
             </div>
             <div class="col-sm-6">
               <br/>
+              Price:
               <input type="number" class="form-control" name="editServicePrice" id="editServicePrice" placeholder="Service Price" />
               <br/>
+            </div>
+            <div class="col-sm-12">
+              <a href="javascript:void(0)" id="showInputFile"/>Upload New Image</a>
             </div>
             <div class="col-sm-12">
               Current Image:
               <div id="currentImage"></div>
             </div>
             <div class="col-sm-12" id="uploadDiv">
-              <input id="file" name="userfile" type="file"/>
+              <br/>
+              <input id="fileService" name="userfile" type="file"/>
             </div>
+
             <div class="col-sm-6">
               <br/>
               <input type="hidden" name="filename" id="filename"/> <!-- This is the filename -->
-              <input id="btnUpdateService" type="submit" class="btn btn-success" value="Update service"/>
+              <input id="btnSubmit" type="submit" class="btn btn-success" value="Update service"/>
+              <input id="btnUpdateService" class="btn btn-success" value="Update service"/>
             </div>
           </form>
         </div>

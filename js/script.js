@@ -183,6 +183,11 @@ $(document).ready(function()
 	    $("#filename").val(file.name);
 	});
 
+	$("#fileService").change(function(){
+	    var file = $("#fileService")[0].files[0];
+	    $("#filename").val(file.name);
+	});
+
 	$(document).on( "click", "#btnRemoveProduct", function(){
 		var productid = $(this).attr("data-id");
 		var confirmRemove = confirm("Are you sure you want to remove this product?");
@@ -598,5 +603,40 @@ $(document).ready(function()
 	$(document).on( "click", "#btnEditService", function(){
 		var id = $(this).attr("data-id");
 		console.log(id);
+	});
+
+	$('#btnUpdateService').click(function(){
+		var id = $('#serviceid').val();
+		var editServiceName = $('#editServiceName').val();
+		var textareatinymce = tinymce.get('textareatinymce').getContent();
+		var editServicePrice = $('#editServicePrice').val();
+
+		$("#updateStatus").html(" ");
+		if (editServiceName == "" || textareatinymce == "" || editServicePrice == "")
+		{
+			$("#updateStatus").append('<div class="alert alert-warning">' +
+				'<strong>Please enter complete details. Try again.</strong>' +
+			'</div>');
+		}
+		else
+		{
+			$.ajax({
+				url: "../updateServiceDetailsOnly",
+		        type: "POST",
+		        data: { 
+		        	id: id,
+		        	editServiceName: editServiceName,
+		        	textareatinymce: textareatinymce,
+		        	editServicePrice: editServicePrice
+		        },
+		        dataType: "json",
+		        success: function(data)
+		        {
+		        	$("#updateStatus").append('<div class="alert alert-success">' +
+  						'<strong>'+data+'</strong>' +
+					'</div>');
+		        }
+			});
+		}
 	});
 });

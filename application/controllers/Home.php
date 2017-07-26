@@ -331,6 +331,7 @@
 
         public function updateService()
         {
+            //var_dump($_POST);
             $config['upload_path']          = './www/images/';
             $config['allowed_types']        = 'gif|jpg|png';
             $config['max_size']             = 5000;
@@ -341,7 +342,7 @@
 
             if (! $this->upload->do_upload('userfile') || $_POST['editServiceName'] == "" || $_POST['editServiceDescription'] == "" || $_POST['editServicePrice'] == "")
             {
-                $error = array('error' => "<div class='alert alert-warning errmess' role='alert'><center>Please enter valid information. Try again.</center></div>");
+                $error = array('error' => "<div class='alert alert-warning errmess' role='alert'><center>Please enter valid information. <button id='tryAgain'>Try again.</button></center></div>");
                 $this->load->view('EditService', $error);
             }
             else
@@ -551,6 +552,14 @@
             $data = array();
             $data = $this->Petvet_model->getProductEditDetails($_POST);
             $data['decoded'] = html_entity_decode($data[0]->description);
+            echo json_encode($data);
+            exit;
+        }
+
+        public function updateServiceDetailsOnly()
+        {
+            $data = array();
+            $data = $this->Petvet_model->updateServicesDetails($_POST);
             echo json_encode($data);
             exit;
         }
