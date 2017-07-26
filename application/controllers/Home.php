@@ -354,6 +354,31 @@
             }
         }
 
+        public function updateProduct()
+        {
+            //var_dump($_POST);
+            $config['upload_path']          = './www/images/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 5000;
+            $config['max_width']            = 5000;
+            $config['max_height']           = 5000;
+
+            $this->load->library('upload', $config);
+
+            if (! $this->upload->do_upload('userfile') || $_POST['editProductName'] == "" || $_POST['editProductDescription'] == "" || $_POST['editProductPrice'] == "")
+            {
+                $error = array('error' => "<div class='alert alert-warning errmess' role='alert'><center>Please enter valid information. <button id='tryAgain'>Try again.</button></center></div>");
+                $this->load->view('EditProduct', $error);
+            }
+            else
+            {
+                $success = array('error' => "<div class='alert alert-success errmess' role='alert'><center>Service successfully updated.</center></div>");
+                $this->load->view('EditProduct', $success);
+                $upload = array();
+                $upload = $this->Petvet_model->updateProductDetails($_POST);
+            }
+        }
+
         public function removeProduct()
         {
             $data = array();
@@ -560,6 +585,14 @@
         {
             $data = array();
             $data = $this->Petvet_model->updateServicesDetails($_POST);
+            echo json_encode($data);
+            exit;
+        }
+
+         public function updateProductDetailsOnly()
+        {
+            $data = array();
+            $data = $this->Petvet_model->updateProductsDetails($_POST);
             echo json_encode($data);
             exit;
         }

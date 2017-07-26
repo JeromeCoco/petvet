@@ -22,14 +22,21 @@
           dataType: "json",
           success: function(data)
           {
-            $('#editProductName').val(data[0]['id']);
+            $('#productid').val(data[0]['id']);
             $('#editProductName').val(data[0]['name']);
             setTimeout(function(){
               tinyMCE.activeEditor.setContent(data['decoded']);
             },1000);
             $('#editProductPrice').val(data[0]['price']);
+            $('#filename').val(data[0]['image']);
             $('#currentImage').html("<img src='"+window.location.origin+"/www/images/"+data[0]['image']+"' style='width:300px'>");
           }
+        });
+
+        $('#showInputFile').click(function(){
+          $("#btnSubmit").css('display', 'block');
+          $("#btnUpdateProduct").css('display', 'none');
+          $("#fileProduct").css('display', 'block');
         });
       });
     </script>
@@ -94,7 +101,7 @@
       <div class="container">
         <div class="main-container">
           <div class="addNewHeaderText">Edit Product Details<hr/> </div>
-          <div class="col-sm-12 ">
+          <div class="col-sm-12" id="updateStatus">
             <?php 
               if (isset($error))
               {
@@ -114,20 +121,26 @@
             </div>
             <div class="col-sm-6">
               <br/>
+              Price:
               <input type="number" class="form-control" name="editProductPrice" id="editProductPrice" placeholder="Product Price" />
               <br/>
+            </div>
+            <div class="col-sm-12">
+              <a href="javascript:void(0)" id="showInputFile"> Upload New Image </a>
             </div>
             <div class="col-sm-12">
               Current Image:
               <div id="currentImage"></div>
             </div>
             <div class="col-sm-12" id="uploadDiv">
-              <input id="file" name="userfile" type="file"/>
+              <br/>
+              <input id="fileProduct" name="userfile" type="file"/>
             </div>
             <div class="col-sm-6">
               <br/>
               <input type="hidden" name="filename" id="filename"/> <!-- This is the filename -->
-              <input id="btnUpdateProduct" type="submit" class="btn btn-success" value="Update product"/>
+              <input id="btnSubmit" type="submit" class="btn btn-success" value="Update product"/>
+              <input id="btnUpdateProduct" class="btn btn-success" value="Update product"/>
             </div>
           </form>
         </div>

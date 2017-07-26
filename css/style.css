@@ -142,7 +142,7 @@ body
     padding: 40px;
 }
 
-#btnSubmit, #fileService
+#btnSubmit, #fileService, #fileProduct
 {
     display: none;
 }

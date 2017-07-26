@@ -188,6 +188,11 @@ $(document).ready(function()
 	    $("#filename").val(file.name);
 	});
 
+	$("#fileProduct").change(function(){
+	    var file = $("#fileProduct")[0].files[0];
+	    $("#filename").val(file.name);
+	});
+
 	$(document).on( "click", "#btnRemoveProduct", function(){
 		var productid = $(this).attr("data-id");
 		var confirmRemove = confirm("Are you sure you want to remove this product?");
@@ -639,4 +644,43 @@ $(document).ready(function()
 			});
 		}
 	});
+
+	$('#btnUpdateProduct').click(function(){
+		var id = $('#productid').val();
+		var editProductName = $('#editProductName').val();
+		var textareatinymce = tinymce.get('textareatinymce').getContent();
+		var editProductPrice = $('#editProductPrice').val();
+
+		$("#updateStatus").html(" ");
+		if (editProductName == "" || textareatinymce == "" || editProductPrice == "")
+		{
+			$("#updateStatus").append('<div class="alert alert-warning">' +
+				'<strong>Please enter complete details. Try again.</strong>' +
+			'</div>');
+		}
+		else
+		{
+			$.ajax({
+				url: "../updateProductDetailsOnly",
+		        type: "POST",
+		        data: { 
+		        	id: id,
+		        	editProductName: editProductName,
+		        	textareatinymce: textareatinymce,
+		        	editProductPrice: editProductPrice
+		        },
+		        dataType: "json",
+		        success: function(data)
+		        {
+		        	$("#updateStatus").append('<div class="alert alert-success">' +
+  						'<strong>'+data+'</strong>' +
+					'</div>');
+		        }
+			});
+		}
+	});
+
+	$('#tryAgain').click(function(){
+		history.go(-1);
+    });
 });

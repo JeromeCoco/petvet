@@ -38,10 +38,6 @@
           $("#btnUpdateService").css('display', 'none');
           $("#fileService").css('display', 'block');
         });
-
-        $('#tryAgain').click(function(){
-          history.go(-1);
-        });
       });
     </script>
   </head>
@@ -140,7 +136,6 @@
               <br/>
               <input id="fileService" name="userfile" type="file"/>
             </div>
-
             <div class="col-sm-6">
               <br/>
               <input type="hidden" name="filename" id="filename"/> <!-- This is the filename -->
