@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2017 at 07:39 PM
+-- Generation Time: Jul 26, 2017 at 05:39 AM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -162,7 +162,8 @@ CREATE TABLE `pet` (
 INSERT INTO `pet` (`id`, `owner_id`, `name`, `breed_id`, `specie_id`, `sex`) VALUES
 (2, 5, 'mingming', 7, 3, 2),
 (3, 3, 'cdscds', 1, 1, 1),
-(5, 5, 'hahaha', 8, 3, 2);
+(5, 5, 'hahaha', 8, 3, 2),
+(6, 3, 'haha', 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -184,10 +185,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `description`, `price`, `image`, `enabled`) VALUES
-(1, 'test', '&lt;p&gt;test&lt;/p&gt;', '900.00', 'csd.png', 0),
-(2, 'test', '&lt;p&gt;&lt;em&gt;&lt;strong&gt;twcdjk&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;', '90.00', 'COCO.png', 0),
-(3, 'sample', '&lt;ol&gt;\r\n&lt;li&gt;&lt;em&gt;this is a test&lt;/em&gt;&lt;/li&gt;\r\n&lt;/ol&gt;', '700.00', 'imagesO93WZ1AT.jpg', 1),
-(4, 'test', '&lt;p&gt;test&lt;/p&gt;', '500.00', 'COCO.png', 1);
+(1, 'gfgt', '<p>hahagfdvfd</p>', '723.00', 'csd.png', 1);
 
 -- --------------------------------------------------------
 
@@ -209,8 +207,7 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`id`, `name`, `description`, `price`, `image`, `enabled`) VALUES
-(1, 'Service1', '&lt;p&gt;&lt;strong&gt;test service&lt;/strong&gt;&lt;/p&gt;', '5000.00', 'imagesO93WZ1AT.jpg', 1),
-(2, 'Haha', '&lt;p&gt;testlang&lt;/p&gt;', '899.00', 'csd.png', 1);
+(1, 'prod 12121', '&lt;p&gt;haha&lt;/p&gt;', '600.00', 'COCO.png', 1);
 
 -- --------------------------------------------------------
 
@@ -355,17 +352,17 @@ ALTER TABLE `order_line`
 -- AUTO_INCREMENT for table `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `specie`
 --
